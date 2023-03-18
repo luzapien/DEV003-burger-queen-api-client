@@ -1,0 +1,31 @@
+const a = "jwtucoucmdfwxxqnxzkaxoglszmfrcvjoiunqqausaxxaaijyqdqgvdnqcaihwilqkpivenpnekioyqujrdrovqrlxovcucjqzjsxmllfgndfprctxvxwlzjtciqxgsxfwhmuzqvlksyuztoetyjugmswfjtawwaqmwyxmvo"
+console.log(a.length)
+const c = "jwtucoucmdfwxxqnxzkaxoglszmfrcvjoiunqqausaxxaaijyqdqgvdnqcaihwilqkpivenpnekioyqujrdrovqrlxovcucjqzjsxmllfgndfprctxvxwlzjtciqxgsxfwhmuzqvlksyuztoetyjugmswfjtawwaqmwyxmvo"
+
+console.log(c.length)
+
+var checkIfPangram = function(sentence) {
+  if(sentence.length === 26){
+    for(let i = 0; i < sentence.length; i++){
+      const char = sentence.charCodeAt(i)
+    //console.log(char)
+    if(char >= 97 && char <= 122){
+      console.log(true)
+    }
+  }
+  } else {
+    console.log(false)
+  }
+ 
+      
+
+  }
+
+checkIfPangram(c)
+
+const regex = /[abcdefghijklmnopqrstuvwxyz]/g
+const x = "qklccnqeicrakurwwhxbugbryvhazoofifidzvxczmpdjfcyiuhqyedxhzexvpitxknjogpetvgxeqrjuuxzzfblhmhbgibocbhtcbgyxzchlawvnhczlecsrioapggorouzcputqsxhvoxbqxxydiumxwg"
+const b = x.match(regex);
+if(b){
+  //console.log(true)
+}
