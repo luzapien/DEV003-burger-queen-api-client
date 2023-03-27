@@ -1,9 +1,10 @@
 <!-- <pre>{{constactForm.value | json}}</pre> -->
-<div class="card mx-auto position-relative mt-40 form-card">
-    <div class="logo position-absolute d-flex align-content-center justify-content-center w-100" style="top:-120px">
-      <img src="assets/logoBQ.png" alt="logo" width="150px">
+<div class="login-container">
+  <div class="card mx-auto position-relative login-card">
+    <div class="logo position-absolute d-flex align-content-center justify-content-center w-100" style="top:-40px">
+      <img src="assets/logoBQ.png" alt="logo" width="80px">
     </div>
-    <div class="card-body">
+    <div class="card-body login-card-body">
       <form [formGroup]="formUser" (ngSubmit)="onSubmitForm()">
         <div class="mb-2">
           <input type="email" placeholder="Email" class="form-control" formControlName="email">
@@ -12,16 +13,19 @@
               Email is required
             </span>
             <span *ngIf="email.errors?.['email']">
-              Please, insert an Email valid
+              Please, insert a valid Email
             </span>
           </div>
         </div>
         <div class="mb-2">
           <input type="password" placeholder="Password" class="form-control" id="password" formControlName="password">
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="formUser.invalid">Login</button>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="formUser.invalid || isFormLoading">
+          <fa-icon [icon]="faSpinner" [spin]="true" *ngIf="isFormLoading"></fa-icon>
+          {{isFormLoading ? 'Loading...' : 'Log in'}}
+        </button>
       </form>
-  
     </div>
   </div>
+</div>
 <router-outlet></router-outlet>
