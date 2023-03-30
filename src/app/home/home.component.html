@@ -1,3 +1,57 @@
 <p>home works!</p>
-<button (click)="getProducts()">Products</button>
 <router-outlet></router-outlet>
+<div>
+
+    <!-- Column for ticket -->
+    <div class="row justify-content-center align-items-start gx-5">
+        <div class="col col-md-5 ticket">
+            <div class="p-3 border bg-light txtlarge"> Order # <div> Counter </div> </div>
+            <div class="row">
+                <div class="col col-md-8 txtlarge"> Items </div>
+                <div class="col col-md-4 txtlarge"> Price </div>
+            </div>
+            <div class="row mt-3 mb-3">
+                <div class="col col-md-9"> Cafe </div>
+                <div class="col col-md-3"> $5.00 </div>
+                <div class="col col-md-9"> Cafe </div>
+                <div class="col col-md-3"> $5.00 </div>
+                <div class="col col-md-9"> Cafe </div>
+                <div class="col col-md-3"> $5.00 </div>
+                <div class="col col-md-9"> Cafe </div>
+                <div class="col col-md-3"> $5.00 </div>
+                <div class="col col-md-9"> Cafe </div>
+                <div class="col col-md-3"> $5.00 </div>
+            </div>
+
+            <div class="row mt-3 mb-5">
+                <div class="col col-md-8 txtlarge"> TOTAL </div>
+                <div class="col col-md-4 txtlarge"> $FINAL PRICE </div>
+            </div>
+
+            <div class="row info">
+                    <!-- We are creating a service with the input data of add-name -->
+    <app-add-name></app-add-name>
+    <app-list-name></app-list-name>
+            </div>
+        </div>
+
+
+        <!-- Column for food -->
+        <div class="col col-md-7">
+            <!-- Columns for the 2 options of food -->
+            <!-- counter for orders -->
+            <app-counter> </app-counter>
+
+            <div class="row mt-5 mb-5 ">
+                <div class="col col-md-6"><button type="button" class="btn btnFood"
+                        (click)='breakfastProducts()'>BREAKFAST</button></div>
+                <div class="col col-md-6"><button type="button" class="btn btnFood"
+                        (click)='dinnerProducts()'>LUNCH/DINNER</button></div>
+            </div>
+
+
+            <div class="row justify-content-center align-items-center">
+
+                <p *ngIf="mostrar"><app-btn-breakfast></app-btn-breakfast></p>
+                <p *ngIf="mostrar2"><app-btn-dinner></app-btn-dinner></p>
+            </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RequestService } from '../request.service';
 import { Router } from '@angular/router';
+import { BtnBreakfastComponent } from '../btn-breakfast/btn-breakfast.component';
 
 @Component({
   selector: 'app-home',
@@ -22,4 +23,15 @@ export class HomeComponent {
       }
     })
   }
+  mostrar = false;
+  mostrar2 = false;
+
+breakfastProducts(){
+  this.mostrar = true;
 }
+
+dinnerProducts(){
+  this.mostrar2 = true;
+}
+
+  }
