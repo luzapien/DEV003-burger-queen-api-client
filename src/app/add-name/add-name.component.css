@@ -1,0 +1,12 @@
+.center{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btnBlue{
+    background-color: rgba(126, 170, 236, 1);
+    font-weight: bold;
+    font-size: large;
+    padding: 10px;
+}

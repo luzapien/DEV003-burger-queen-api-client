@@ -1,0 +1,34 @@
+.btnFood{
+    background-color: rgba(126, 170, 236, 1);
+    font-weight: bold;
+    font-size: large;
+    padding: 30px;
+    display: flex;
+    margin: auto;
+}
+
+*{
+    font-weight: bold;
+    font-size: large;
+}
+
+.txtlarge{
+    display: flex;
+    font-size: larger;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.ticket{
+    background-color: #eee7e7;
+    opacity: 85%;
+    height: 600px;
+}
+.info{
+    display: flex;
+    font-size: larger;
+    justify-content: center;
+    margin-right: 5px;
+    margin-left: 5px;
+}

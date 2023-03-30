@@ -1,13 +1,28 @@
 <nav class="navbar bg-light border-bottom container-fluid">
   <div class="container">
+
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="home" routerLinkActive="active"> Home </a>
+        </li>
+        <li>
+          <a routerLink="kitchen" routerLinkActive="active"> Kitchen </a>
+        </li>
+        <li>
+          <a routerLink="login" routerLinkActive="active"> Login </a>
+        </li>
+      </ul>
+    </nav>
+
     <a class="navbar-brand" href="#">
       <fa-icon [icon]="faBurger"></fa-icon>
       Burger Queen
-    </a>
+   </a> 
   </div>
 </nav>
 
-<div class="container p-2">
+<div class="container p-2 ">
   <router-outlet></router-outlet>
 </div>
 
@@ -33,7 +48,7 @@
       </li>
       <li class="ms-3">
         <a class="text-muted" href="#">
-        <fa-icon [icon]="faCoffee"></fa-icon>
+          <fa-icon [icon]="faCoffee"></fa-icon>
         </a>
       </li>
     </ul>
