@@ -48,7 +48,7 @@ export class LoginComponent {
         throw new Error(response.statusText);
       }
       const required = await response.json()
-      console.log(required)
+      console.log(required.accessToken)
       this.router.navigate(['home'])
     } catch (error) {
       console.log(error)
