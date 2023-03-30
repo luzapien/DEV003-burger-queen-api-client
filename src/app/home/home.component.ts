@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  mostrar = false;
+  mostrar2 = false;
+
+breakfastProducts(){
+  this.mostrar = true;
 }
+
+dinnerProducts(){
+  this.mostrar2 = true;
+}
+
+}
+
+
