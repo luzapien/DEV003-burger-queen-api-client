@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { RequestService } from '../request.service';
 
 @Component({
   selector: 'app-login',// detalle de una persona 
@@ -9,6 +10,15 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  
+
+  constructor(
+    private requestService: RequestService,
+    private router: Router
+  ) {
+
+  }
+
   get email() {
     return this.formUser.get('email') as FormControl;
   }
@@ -20,40 +30,55 @@ export class LoginComponent {
 
   faSpinner = faSpinner;
 
-  constructor(private router: Router) {
-
-  }
-
   isFormLoading = false
 
-  async onSubmitForm() {
+  createPostos() {
     this.isFormLoading = true
     const { value } = this.formUser
-    console.log('Value:', value)
-    try {
-      // await new Promise((resolve) => {
-      //   setTimeout(() => {
-      //     resolve(this.router.navigate(['home']))
-      //   }, 3000)
-      // })
-      const response = await fetch('http://localhost:8080/login',
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(value)
-        })
-      if (!response.ok) {
-        throw new Error(response.statusText);
+    this.requestService.postRequest(value).subscribe({
+      next: (response) => {
+        console.log(response)
+        this.router.navigate(['home'])
+      },
+      error: (error) => {
+        console.log(error)
       }
-      const required = await response.json()
-      console.log(required.accessToken)
-      this.router.navigate(['home'])
-    } catch (error) {
-      console.log(error)
-    } finally {
-      this.isFormLoading = false
-    }
+
+    });
   }
+
+
+
+  // async onSubmitForm() {
+  //   this.isFormLoading = true
+  //   const { value } = this.formUser
+  //   console.log('Value:', value)
+  //   try {
+  //     // await new Promise((resolve) => {
+  //     //   setTimeout(() => {
+  //     //     resolve(this.router.navigate(['home']))
+  //     //   }, 3000)
+  //     // })
+  //     const response = await fetch('http://localhost:8080/login',
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json"
+  //         },
+  //         body: JSON.stringify(value)
+  //       })
+  //     if (!response.ok) {
+  //       throw new Error(response.statusText);
+  //     }
+  //     const required = await response.json()
+  //     console.log(required.accessToken)
+  //     this.router.navigate(['home'])
+  //   } catch (error) {
+  //     console.log(error)
+  //   } finally {
+  //     this.isFormLoading = false
+  //   }
+  // }
+
+
 }
