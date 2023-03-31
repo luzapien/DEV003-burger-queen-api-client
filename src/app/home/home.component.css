@@ -1,19 +1,17 @@
-.btnFood{
-    background-color: rgba(126, 170, 236, 1);
-    color:black;
-    padding: 40px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
-
-
 *{
-    display: flex;
-    justify-content: center;
     font-weight: bold;
+    justify-content: center;
     font-size: large;
 }
-
-/* .txtlarge{
+.btnFood{
+    background-color: rgba(126, 170, 236, 1);
+    font-weight: bold;
+    font-size: large;
+    padding: 30px;
+    display: flex;
+    margin: auto;
+}
+.txtlarge{
     display: flex;
     font-size: larger;
     justify-content: center;
@@ -32,4 +30,14 @@
     justify-content: center;
     margin-right: 5px;
     margin-left: 5px;
-} */
+}
+
+.btnFood{
+    background-color: rgba(126, 170, 236, 1);
+    color:black;
+    padding: 40px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+
+    
