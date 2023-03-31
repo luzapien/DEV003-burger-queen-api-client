@@ -1,3 +1,8 @@
+*{
+    font-weight: bold;
+    justify-content: center;
+    font-size: large;
+}
 .btnFood{
     background-color: rgba(126, 170, 236, 1);
     font-weight: bold;
@@ -6,12 +11,6 @@
     display: flex;
     margin: auto;
 }
-
-*{
-    font-weight: bold;
-    font-size: large;
-}
-
 .txtlarge{
     display: flex;
     font-size: larger;
@@ -32,3 +31,13 @@
     margin-right: 5px;
     margin-left: 5px;
 }
+
+.btnFood{
+    background-color: rgba(126, 170, 236, 1);
+    color:black;
+    padding: 40px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+
+    
