@@ -4,14 +4,16 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
+import { BtnDinnerComponent } from './btn-dinner/btn-dinner.component';
+import { BtnBreakfastComponent } from './btn-breakfast/btn-breakfast.component';
 
 const routes: Routes = [{
   path: 'login',
   component: LoginComponent
 },
-{
-  path: 'home',
-  component: HomeComponent
+{path: 'home',component: HomeComponent,
+children:[{path:'btn-dinner',component:BtnDinnerComponent},
+  {path:'btn-breakfast',component:BtnBreakfastComponent}]
 },
 {
   path: 'kitchen',
