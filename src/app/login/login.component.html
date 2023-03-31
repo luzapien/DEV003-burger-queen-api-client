@@ -19,8 +19,16 @@
         </div>
         <div class="mb-2">
           <input type="password" placeholder="Password" class="form-control" id="password" formControlName="password">
+          <div class="alert alert-danger mt-3" role="alert" [hidden]="password.valid || password.pristine">
+            <span *ngIf="password.errors?.['required']">
+              Password is required
+            </span>
+            <span *ngIf="password.errors?.['minLength']">
+              Please, insert six or more characters
+            </span>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary w-100" [disabled]="formUser.invalid || isFormLoading">
+        <button type="submit" class="btn btn-primary w-100" [disabled]="!(formUser.valid && formUser.dirty) || isFormLoading">
           <fa-icon [icon]="faSpinner" [spin]="true" *ngIf="isFormLoading"></fa-icon>
           {{isFormLoading ? 'Loading...' : 'Log in'}}
         </button>

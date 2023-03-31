@@ -23,16 +23,20 @@ export class LoginComponent {
     return this.formUser.get('email') as FormControl;
   }
 
+  get password(){
+    return this.formUser.get('password') as FormControl;
+  }
+
   formUser = new FormGroup({
     'email': new FormControl('', [Validators.required, Validators.email]),
-    'password': new FormControl('', Validators.required),
+    'password': new FormControl('', [Validators.required, Validators.minLength(6)]),
   })
 
   faSpinner = faSpinner;
 
-  isFormLoading = false
+ isFormLoading:boolean = false
 
-  createPostos() {
+  createPostos():void{
     this.isFormLoading = true
     const { value } = this.formUser
     this.requestService.postRequest(value).subscribe({
@@ -41,44 +45,13 @@ export class LoginComponent {
         this.router.navigate(['home'])
       },
       error: (error) => {
-        console.log(error)
+        console.log(error.error)
+        this.formUser.reset()
+        this.isFormLoading = false
+        
       }
-
     });
+    
   }
-
-
-
-  // async onSubmitForm() {
-  //   this.isFormLoading = true
-  //   const { value } = this.formUser
-  //   console.log('Value:', value)
-  //   try {
-  //     // await new Promise((resolve) => {
-  //     //   setTimeout(() => {
-  //     //     resolve(this.router.navigate(['home']))
-  //     //   }, 3000)
-  //     // })
-  //     const response = await fetch('http://localhost:8080/login',
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json"
-  //         },
-  //         body: JSON.stringify(value)
-  //       })
-  //     if (!response.ok) {
-  //       throw new Error(response.statusText);
-  //     }
-  //     const required = await response.json()
-  //     console.log(required.accessToken)
-  //     this.router.navigate(['home'])
-  //   } catch (error) {
-  //     console.log(error)
-  //   } finally {
-  //     this.isFormLoading = false
-  //   }
-  // }
-
 
 }

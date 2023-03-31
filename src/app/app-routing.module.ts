@@ -4,6 +4,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
+import { BtnBreakfastComponent } from './btn-breakfast/btn-breakfast.component';
+import { BtnDinnerComponent } from './btn-dinner/btn-dinner.component';
+
+
 
 const routes: Routes = [{
   path: 'login',
@@ -11,7 +15,17 @@ const routes: Routes = [{
 },
 {
   path: 'home',
-  component: HomeComponent
+  children:[
+    {
+      path:'breakfast',
+      component:BtnBreakfastComponent
+    },
+    {
+      path:'dinner',
+      component:BtnDinnerComponent
+    }
+  ]
+  
 },
 {
   path: 'kitchen',
