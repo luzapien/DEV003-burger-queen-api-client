@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http'
 import { AddNameComponent } from './add-name/add-name.component';
 import { ListNameComponent } from './list-name/list-name.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
@@ -34,7 +35,8 @@ import { CounterComponent } from './counter/counter.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
