@@ -9,13 +9,15 @@
 }
 .labelcolor {
     display: flex;
-    background-color: #EC8C33;
+    background-color:#D96704;
+    color: white;
     font-weight: bold;
     font-size: large;
     justify-content: center;
 }
 .btnFood {
-    background-color: rgba(126, 170, 236, 1);
+    background-color:#BFB745;
+    color:black;
     font-weight: bold;
     font-size: large;
     padding: 30px;
@@ -31,7 +33,7 @@
 }
 
 .ticket {
-    background-color: #eee7e7;
+    background-color: #F2F2F2;
     opacity: 85%;
     height: 600px;
 }
