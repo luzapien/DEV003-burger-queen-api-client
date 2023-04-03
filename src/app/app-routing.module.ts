@@ -11,9 +11,16 @@ const routes: Routes = [{
   path: 'login',
   component: LoginComponent
 },
-{path: 'home',component: HomeComponent,
-children:[{path:'btn-dinner',component:BtnDinnerComponent},
-  {path:'btn-breakfast',component:BtnBreakfastComponent}]
+{
+  path: 'home', component: HomeComponent,
+  children: [{
+    path: 'dinner',
+    component: BtnDinnerComponent
+  },
+  {
+    path: 'breakfast',
+    component: BtnBreakfastComponent
+  }]
 },
 {
   path: 'kitchen',
