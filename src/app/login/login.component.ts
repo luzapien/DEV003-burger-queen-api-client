@@ -3,15 +3,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { RequestService } from '../request.service';
-
+import * as Toastify from 'toastify-js';
 @Component({
   selector: 'app-login',// detalle de una persona 
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  
-
   constructor(
     private requestService: RequestService,
     private router: Router
@@ -23,7 +21,7 @@ export class LoginComponent {
     return this.formUser.get('email') as FormControl;
   }
 
-  get password(){
+  get password() {
     return this.formUser.get('password') as FormControl;
   }
 
@@ -34,9 +32,10 @@ export class LoginComponent {
 
   faSpinner = faSpinner;
 
- isFormLoading:boolean = false
+  isFormLoading: boolean = false
+  message: string = ""
 
-  createPostos():void{
+  createPostos(): void {
     this.isFormLoading = true
     const { value } = this.formUser
     this.requestService.postRequest(value).subscribe({
@@ -45,13 +44,26 @@ export class LoginComponent {
         this.router.navigate(['home'])
       },
       error: (error) => {
-        console.log(error.error)
-        this.formUser.reset()
+        console.log(error)
+        if (error.status === 400){
+          this.showError("Please,verify your Email and Password")
+        }
+       
         this.isFormLoading = false
-        
       }
     });
-    
   }
-
+  showError(message:string): void {
+    Toastify({
+      text: message,
+      duration: 5000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      stopOnFocus: true,
+      style: {
+        background: "#dc3545",
+      }
+    }).showToast();
+  }
 }

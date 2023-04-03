@@ -23,12 +23,13 @@
             <span *ngIf="password.errors?.['required']">
               Password is required
             </span>
-            <span *ngIf="password.errors?.['minLength']">
-              Please, insert six or more characters
+            <span *ngIf="password.errors?.['minlength']">
+              Please, insert 6 or more characters
             </span>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary w-100" [disabled]="!(formUser.valid && formUser.dirty) || isFormLoading">
+        <button type="submit" class="btn btn-primary w-100"
+          [disabled]="!(formUser.valid && formUser.dirty) || isFormLoading">
           <fa-icon [icon]="faSpinner" [spin]="true" *ngIf="isFormLoading"></fa-icon>
           {{isFormLoading ? 'Loading...' : 'Log in'}}
         </button>
