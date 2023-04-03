@@ -15,6 +15,7 @@ import { KitchenComponent } from './kitchen/kitchen.component';
 import { BtnBreakfastComponent } from './btn-breakfast/btn-breakfast.component';
 import { BtnDinnerComponent } from './btn-dinner/btn-dinner.component';
 import { CounterComponent } from './counter/counter.component';
+import { ReceiptComponent } from './receipt/receipt.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CounterComponent } from './counter/counter.component';
     KitchenComponent,
     BtnBreakfastComponent,
     BtnDinnerComponent,
-    CounterComponent
+    CounterComponent,
+    ReceiptComponent
   ],
   imports: [
     BrowserModule,
