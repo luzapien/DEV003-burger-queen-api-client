@@ -12,8 +12,8 @@ const routes: Routes = [{
   component: LoginComponent
 },
 {path: 'home',component: HomeComponent,
-children:[{path:'btn-dinner',component:BtnDinnerComponent},
-  {path:'btn-breakfast',component:BtnBreakfastComponent}]
+children:[{path:'dinner',component:BtnDinnerComponent},
+  {path:'breakfast',component:BtnBreakfastComponent}]
 },
 {
   path: 'kitchen',
