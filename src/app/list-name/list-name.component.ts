@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NamesService } from '../names.service';
+import { AddProductService } from '../addproducts.service';
 
 @Component({
   selector: 'app-list-name',
@@ -8,5 +8,5 @@ import { NamesService } from '../names.service';
 })
 export class ListNameComponent {
 // variable that will list the names
-  constructor(public namesService : NamesService){}
+  constructor(public AddProductService: AddProductService ){}
 }
