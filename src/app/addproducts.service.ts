@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Product } from 'src/types';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NamesService {
+export class AddProductService {
 
   constructor() { }
 // Propiedad de array de strings en un array vacio
-  names:string[] = [];
+  products:Product[] = [];
 
-  add(name: string){
-    this.names.push(name);
+  add(product: Product){
+    this.products.push(product);
   }
 }

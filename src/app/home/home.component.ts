@@ -1,46 +1,65 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, Input } from '@angular/core';
 import { RequestService } from '../request.service';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { BtnBreakfastComponent } from '../btn-breakfast/btn-breakfast.component';
+import type { Product } from 'src/types';
+import { AddProductService  } from '../addproducts.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [CookieService]
 })
 export class HomeComponent implements OnInit{ 
   constructor(
     private requestService: RequestService,
-    private router: Router
-  ){}
-  getProducts() {
-    let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6I…IyIn0.q4GXdrPlGx7IzBM3wyhQhtS4QZoShG5b-91wkKTjJCM'
-    this.requestService.productsRequest(token).subscribe({
-      next:(response) => {
-        console.log(response)
+    private router: Router,
+    private cookieService: CookieService,
+    public AddProductService : AddProductService 
+  ) {
+    this.getProducts()
+  }
+  @Input() item?: string;
+
+  products: Array<Product> = []
+  filteredProducts: Array<Product> = []
+
+  getProducts(): void {
+    const token = this.cookieService.get('accessToken');
+    this.requestService.getProductsRequest(token).subscribe({
+      next: (response) => {
+        console.log('estos son los productos',response)
+        this.products = response
+        this.filteredProducts = response
+        
       }
     })
   }
 
-  public receipt:Array<any> =[]
-  ngOnInit(): void {
-    this.receipt=[
-    {
-      title:'double burguer',
-      subtitle:'Price 15.00'
-    },
-  ]
-}
-  mostrar = false;
-  mostrar2 = false;
+  formatPrice(price: number) {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(price);
+  }
 
-breakfastProducts(){
-  this.mostrar = true;
-}
+  filterByFoodType(type: string) {
+    if (type === "all") {
+      this.filteredProducts = this.products
+      return
+    }
+    const productBreakfast = this.products.filter((product) => product.type === type)
+    this.filteredProducts = productBreakfast
+  }
 
-dinnerProducts(){
-  this.mostrar2 = true;
-}
+  product:Product[] = [];
 
+  addProducts(name:Product) {
+    this.AddProductService.add(name);
 
   }
+
+}

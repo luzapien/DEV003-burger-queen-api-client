@@ -1,5 +1,12 @@
-<ul>
-    <li *ngFor="let name of namesService.names">
-        {{name}}
-    </li>
- </ul>
+<div>
+<div *ngFor="let product of AddProductService.products">
+    <div class="col col-md-9">
+        <button type="button" class="btn-close" aria-label="Close">
+        </button>
+        {{product.name}} 
+    </div>
+    <div>
+        $ {{product.price}}
+    </div>
+</div>
+</div>
