@@ -13,7 +13,7 @@ import { AddProductService  } from '../addproducts.service';
   styleUrls: ['./home.component.css'],
   providers: [CookieService]
 })
-export class HomeComponent implements OnInit{ 
+export class HomeComponent{ 
   constructor(
     private requestService: RequestService,
     private router: Router,
