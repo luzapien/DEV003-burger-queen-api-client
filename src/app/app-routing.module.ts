@@ -21,6 +21,7 @@ const routes: Routes = [{
     path: 'breakfast',
     component: BtnBreakfastComponent
   }]
+
 },
 {
   path: 'kitchen',

@@ -1,3 +1,4 @@
+
 import { Component, Input } from '@angular/core';
 import { RequestService } from '../request.service';
 import { Router } from '@angular/router';
@@ -12,7 +13,7 @@ import { AddProductService  } from '../addproducts.service';
   styleUrls: ['./home.component.css'],
   providers: [CookieService]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{ 
   constructor(
     private requestService: RequestService,
     private router: Router,
@@ -58,6 +59,7 @@ export class HomeComponent {
 
   addProducts(name:Product) {
     this.AddProductService.add(name);
+
   }
 
 }
