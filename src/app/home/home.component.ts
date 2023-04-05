@@ -55,11 +55,14 @@ export class HomeComponent{
     this.filteredProducts = productBreakfast
   }
 
-  product:Product[] = [];
+  // product:Product[] = [];
 
   addProducts(name:Product) {
     this.AddProductService.add(name);
-
+    console.log('adding', this.products)
   }
+
+
+
 
 }

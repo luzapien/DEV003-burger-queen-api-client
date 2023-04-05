@@ -12,16 +12,8 @@ const routes: Routes = [{
   component: LoginComponent
 },
 {
-  path: 'home', component: HomeComponent,
-  children: [{
-    path: 'dinner',
-    component: BtnDinnerComponent
-  },
-  {
-    path: 'breakfast',
-    component: BtnBreakfastComponent
-  }]
-
+  path: 'home', 
+  component: HomeComponent,
 },
 {
   path: 'kitchen',
@@ -29,14 +21,9 @@ const routes: Routes = [{
 },
 {
   path: '',
-  redirectTo: '/home',
+  redirectTo: '/login',
   pathMatch: 'full'
 },
-// {
-//   path: '',
-//   redirectTo: '/kitchen',
-//   pathMatch: 'full'
-// },
 {
   path: '**',
   component: PagenotfoundComponent
