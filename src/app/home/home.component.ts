@@ -1,9 +1,8 @@
 
 import { Component, Input } from '@angular/core';
 import { RequestService } from '../request.service';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { BtnBreakfastComponent } from '../btn-breakfast/btn-breakfast.component';
 import type { Product } from 'src/types';
 import { AddProductService  } from '../addproducts.service';
 
@@ -16,7 +15,7 @@ import { AddProductService  } from '../addproducts.service';
 export class HomeComponent{ 
   constructor(
     private requestService: RequestService,
-    private router: Router,
+    // private router: Router,
     private cookieService: CookieService,
     public AddProductService : AddProductService 
   ) {
@@ -38,7 +37,6 @@ export class HomeComponent{
       }
     })
   }
-
   formatPrice(price: number) {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -54,15 +52,9 @@ export class HomeComponent{
     const productBreakfast = this.products.filter((product) => product.type === type)
     this.filteredProducts = productBreakfast
   }
-
-  // product:Product[] = [];
-
   addProducts(name:Product) {
     this.AddProductService.add(name);
     console.log('adding', this.products)
   }
-
-
-
 
 }
