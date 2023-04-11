@@ -1,17 +1,47 @@
-.row2{
+* {
+    font-weight: bold;
+    font-size: large;
+}
+.row2 {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 60px;
 }
-
-.labelcolor{
+.labelcolor {
     display: flex;
-    background-color: #EC8C33;
+    background-color:#D96704;
+    color: white;
     font-weight: bold;
     font-size: large;
     justify-content: center;
 }
-
-*{
+.btnFood {
+    background-color:#BFB745;
+    color:black;
     font-weight: bold;
+    font-size: large;
+    padding: 30px;
+    display: flex;
+    margin: auto;
+}
+.txtlarge {
+    display: flex;
+    font-size: larger;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.ticket {
+    background-color: #F2F2F2;
+    opacity: 85%;
+    height: 600px;
+}
+
+.info {
+    display: flex;
+    font-size: larger;
+    justify-content: center;
+    margin-right: 5px;
+    margin-left: 5px;
 }

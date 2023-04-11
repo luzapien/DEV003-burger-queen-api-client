@@ -1,17 +1,18 @@
+/* *{
+    font-weight: bold;
+    justify-content: center;
+    font-size: large;
+} */
 .btnFood{
-    background-color: rgba(126, 170, 236, 1);
+    background-color: #730202;
+    color: white;
     font-weight: bold;
     font-size: large;
     padding: 30px;
+    width: 180px;
     display: flex;
     margin: auto;
 }
-
-*{
-    font-weight: bold;
-    font-size: large;
-}
-
 .txtlarge{
     display: flex;
     font-size: larger;
@@ -21,7 +22,7 @@
 }
 
 .ticket{
-    background-color: #eee7e7;
+    background-color: #F2F2F2;
     opacity: 85%;
     height: 600px;
 }
@@ -32,3 +33,7 @@
     margin-right: 5px;
     margin-left: 5px;
 }
+
+
+
+    
