@@ -13,4 +13,14 @@ export class AddProductService {
   add(product: Product){
     this.products.push(product);
   }
+
+  removeProductsTicket(productId:any) {
+    this.products.map((item, index) => {
+      if (item.id === productId) {
+        this.products.splice(index, 1);
+      }
+    });
+  }
+
+  
 }
