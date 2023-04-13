@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AddProductService  } from '../addproducts.service';
+import { AddProductService  } from '../servicios/addproducts.service';
 
 @Component({
   selector: 'app-add-name',
