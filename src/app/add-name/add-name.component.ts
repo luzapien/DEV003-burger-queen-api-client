@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import { NamesService } from '../names.service';
+import { AddProductService } from '../servicios/addproducts.service';
 
 @Component({
   selector: 'app-add-name',
@@ -9,13 +9,13 @@ import { Component } from '@angular/core';
 export class AddNameComponent {
 
   // variable namesService is public so we can use it in different components
-  // constructor(public namesService : NamesService){}
+  constructor(public namesService : AddProductService){}
 
-  // name: string = '';
+  name: string = '';
 
-  // addnames(){
-  //   this.namesService.add(this.name); 
-  //   this.name = ''; // clean the input 
-  // }
+  addnames(){
+    this.namesService.addName(this.name); 
+    this.name = ''; // clean the input 
+  }
 
 }

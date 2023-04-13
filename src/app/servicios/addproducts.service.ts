@@ -22,5 +22,9 @@ export class AddProductService {
     });
   }
 
+  name:string[]=[];
+  addName(name: string){
+    this.name.push(name);
+  }
   
 }
