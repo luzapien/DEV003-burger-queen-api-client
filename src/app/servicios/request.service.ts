@@ -24,4 +24,12 @@ export class RequestService {
     })
     return this.http.get<Array<Product>>('http://localhost:8080/products', { headers });
   }
+
+  createOrder(products:any, token: string){
+    const headers = new HttpHeaders({
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json; charset=UTF-8",
+    })
+    return this.http.post<Product>(' http://localhost:8080/orders',{headers})
+  }
 }

@@ -10,6 +10,4 @@ export class AppComponent {
   title = 'my-first-project';
   faBurger = faBurger;
   faCoffee = faCoffee;
-
- 
 }
