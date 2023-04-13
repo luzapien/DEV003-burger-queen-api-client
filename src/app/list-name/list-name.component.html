@@ -1,13 +1,5 @@
-<!-- <div>
-    <div *ngFor="let product of AddProductService.products" class="itemFood d-flex">
-        <div class="col col-md-12">
-            <button type="button" class="btn-close" aria-label="Close" (click)="deleteProducts(product.id)">     
-            </button>
-            {{product.name}} 
-            {{product.id}}
-        </div>
-        <div>
-             $ {{product.price}}
-        </div>
-    </div>
-    </div> -->
+<ul>
+    <li *ngFor="let name of namesService.names">
+        {{name}}
+    </li>
+ </ul>

@@ -16,4 +16,11 @@ export class BillComponent {
     this.addProductService.removeProductsTicket(productId);
   }
 
+  totalPrice() {
+    const total = this.addProductService.products.reduce((pv, cv) => {
+      return pv = pv + cv.price
+    }, 0) // initial value is 0 in accumulator
+    return total
+  }
+
 }

@@ -8,17 +8,5 @@ import { Product } from 'src/types';
   styleUrls: ['./list-name.component.css']
 })
 export class ListNameComponent {
-// // variable that will list the names
-//   constructor(public AddProductService: AddProductService ){}
-
-  // products: Array<Product> = []
-
-  // deleteProducts(key:number) {
-  //   this.products.forEach((value,index) =>{
-  //     if(value.id == key)
-  //     this.products.splice(index,1)
-  //     console.log('este es el producto', this.products)
-  //   })
-  // }
-
+  constructor(public namesService : AddProductService){}
 }
