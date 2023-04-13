@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AddProductService  } from '../addproducts.service';
-import { RequestService } from '../request.service';
+import { AddProductService } from '../servicios/addproducts.service';
+import { RequestService } from '../servicios/request.service';
 
 @Component({
   selector: 'app-bill',
@@ -12,8 +12,13 @@ export class BillComponent {
     public addProductService: AddProductService
   ) { }
 
-  removeProductsTicket(productId:any) {
+  removeProductsTicket(productId: number) {
     this.addProductService.removeProductsTicket(productId);
   }
-
+  totalPrice() {
+    const total = this.addProductService.products.reduce((pv, cv) => {
+      return pv = pv + cv.price
+    }, 0)
+    return total
+  }
 }

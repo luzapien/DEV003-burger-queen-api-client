@@ -3,7 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { RequestService } from '../request.service';
+import { RequestService } from '../servicios/request.service';
 import * as Toastify from 'toastify-js';
 @Component({
   selector: 'app-login',// detalle de una persona 

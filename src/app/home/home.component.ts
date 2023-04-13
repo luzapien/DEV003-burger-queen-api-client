@@ -1,10 +1,10 @@
 
 import { Component, Input } from '@angular/core';
-import { RequestService } from '../request.service';
+import { RequestService } from '../servicios/request.service';
 // import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import type { Product } from 'src/types';
-import { AddProductService  } from '../addproducts.service';
+import { AddProductService  } from '../servicios/addproducts.service';
 
 @Component({
   selector: 'app-home',
