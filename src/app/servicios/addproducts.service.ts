@@ -22,9 +22,12 @@ export class AddProductService {
     });
   }
 
-  name:string[]=[];
+  // name service
+  // Propiedad de array de strings en un array vacio
+  names:string[] = [];
+
   addName(name: string){
-    this.name.push(name);
+    this.names.push(name);
   }
   
 }

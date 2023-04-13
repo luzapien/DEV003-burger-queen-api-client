@@ -1,30 +1,30 @@
-<div class="p-3 border bg-light txtlarge"> 
-	<p>{{date | date : "short"}}</p>
+<div class="containerTicket">
+<div class="d-flex"> 
+	<h1>RECEIPT          &nbsp; -----------  &nbsp;  Date: {{date | date : "short"}}</h1> 
 </div>
 <div class="row">
-	<div class="col col-md-8 txtlarge"> Items </div>
-	<div class="col col-md-4 txtlarge"> Price </div>
+	<div class="col col-md-9 "> Items </div>
+	<div class="col col-md-3 txtlarge"> Price </div>
 </div>
-<div class="row mt-3 mb-3">
+
+<div class="row mt-3 mb-3 height">
 	<div>
 		<div *ngFor="let product of addProductService.products" class="itemFood d-flex">
-			<div class="col col-md-12">
-				<button type="button" class="close" aria-label="Remove Item" (click)="removeProductsTicket(product.id)">
+			<div class="col col-md-10 d-flex">
+				<button type="button" class="close btnClose" aria-label="Remove Item" (click)="removeProductsTicket(product.id)">
 					<span aria-hidden="true">&times;</span>
-				</button>
-				{{product.name}}
+				</button> {{product.name}}
 			</div>
-			<div>
-				$ {{product.price}}
+			<div class="col col-md-2">
+				{{product.price | currency:'USD'}}
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="row mt-3 mb-5">
-	<div class="col col-md-8 txtlarge"> TOTAL </div>
-	<div class="col col-md-4 txtlarge"> {{totalPrice()}}</div>
-	<div>
-		<button (click)="sendProducts()">Send</button>
-	</div>
+<div class="row">
+	<div class="col col-md-9 txtlarge d-flex justify-content-end"> TOTAL </div>
+	<div class="col col-md-3 txtlarge"> {{totalPrice()| currency:'USD'}} </div>
+</div>
+<div class="row mt-3"><app-add-name></app-add-name> </div>
 </div>

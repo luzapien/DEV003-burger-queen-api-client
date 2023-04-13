@@ -1,12 +1,25 @@
-.center{
+.card-button {
+    /* transform: translate(-50%, 1%); */
+    border-radius: 1rem;
+    border: none;
+    background-color:  #730202;
+    color: #fff;
+    font-size: large;
+    font-weight: bolder;
+    /* position: absolute; */
+    opacity: 1;
     display: flex;
     justify-content: center;
+    /* transition: 0.3s ease-out; */
+   }
+
+.formname{
     flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
 }
 
-.btnBlue{
-    background-color: rgba(126, 170, 236, 1);
-    font-weight: bold;
-    font-size: large;
-    padding: 10px;
+.labelName{
+    display: flex;
+    justify-content: center;
 }
