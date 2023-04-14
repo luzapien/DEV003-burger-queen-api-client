@@ -1,22 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Product } from 'src/types';
+import { Product, ProductsService } from 'src/types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddProductService {
-
+  
   constructor() { }
 // Propiedad de array de strings en un array vacio
-  products:Product[] = [];
+  products:ProductsService[] = [];// Array donde estan los productos
 
+//Funcion para agregar productos
   add(product: Product){
-    this.products.push(product);
+    const productExist= this.products.some((element) =>element.product.id === product.id )
+    if(productExist){
+      this.products=this.products.map((element)=> element.product.id === product.id?{product:element.product, qty:element.qty+1}:element)
+    }else{
+      this.products=[...this.products,{product,qty:1}]
+    }
+    // this.products.push(product);
   }
 
   removeProductsTicket(productId:any) {
     this.products.map((item, index) => {
-      if (item.id === productId) {
+      if (item.product.id === productId) {
         this.products.splice(index, 1);
       }
     });

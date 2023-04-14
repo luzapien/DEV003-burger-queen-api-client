@@ -16,3 +16,8 @@ export interface Product {
   price: number,
   type: string
 }
+export interface ProductsService{
+  product : Product,
+  qty:number,
+
+}
