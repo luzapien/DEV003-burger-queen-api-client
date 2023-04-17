@@ -26,6 +26,7 @@ export class BillComponent {
     this.addProductService.removeProductsTicket(productId);
   }
 
+
   totalPrice() {
     const total = this.addProductService.products.reduce((pv, cv) => {
       return pv = pv + cv.product.price * cv.quantity

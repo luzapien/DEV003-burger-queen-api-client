@@ -5,7 +5,7 @@ import { ProductService, Product } from 'src/types';
   providedIn: 'root'
 })
 export class AddProductService {
-
+  
   constructor() { }
   // Propiedad de array de strings en un array vacio
   products: ProductService[] = [];
