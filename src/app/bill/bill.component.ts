@@ -3,6 +3,7 @@ import { AddProductService } from '../servicios/addproducts.service';
 import { RequestService } from '../servicios/request.service';
 import { Product } from 'src/types';
 import { CookieService } from 'ngx-cookie-service';
+import { faTrashAlt, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-bill',
@@ -16,27 +17,19 @@ export class BillComponent {
     private requestService: RequestService,
     private cookieService: CookieService
   ) { }
+  faTrash = faTrashAlt;
+  faPlus = faPlus;
+  faMinus = faMinus;
+  date: Date = new Date();
+
   removeProductsTicket(productId: number) {
     this.addProductService.removeProductsTicket(productId);
   }
+
   totalPrice() {
     const total = this.addProductService.products.reduce((pv, cv) => {
-      return pv = pv + cv.price
+      return pv = pv + cv.product.price * cv.quantity
     }, 0)
     return total
-  }
-  date: Date = new Date();
-  
-  sendProducts(){
-    this.date
-    // const token = this.cookieService.get('accessToken');
-    // const order = this.addProductService.products
-    // this.requestService.createOrder(order, token).subscribe({
-    //   next:(response) => {
-    console.log(this.addProductService.products, this.date)
-
-    //   }
-    // })
-   
   }
 }

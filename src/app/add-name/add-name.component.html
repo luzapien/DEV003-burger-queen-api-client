@@ -1,10 +1,8 @@
-<form (ngSubmit)="addnames()" class="d-flex formname">
-    <div class="labelName">
-            <label class="form-label "> Order for: </label>
-    <input type="text" class="p-1" placeholder="Add name" name="name" [(ngModel)]="name">
-    </div>
+<form (ngSubmit)="addnames()" class="d-flex align-items-center gap-2 justify-content-center">
+    <label class="form-label">Order for:</label>
+    <input type="text" class="form-control" style="width:180px;" placeholder="Add name" name="name" [(ngModel)]="name">
 
-    <button class="btn card-button mt-1 mb-1"> 
+    <button (click)="sendOrder()" class="btn btn-custom">
         Send to Kitchen
-    </button> 
+    </button>
 </form>

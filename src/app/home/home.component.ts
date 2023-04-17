@@ -6,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 import type { Product } from 'src/types';
 import { AddProductService  } from '../servicios/addproducts.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

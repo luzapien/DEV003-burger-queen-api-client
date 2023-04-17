@@ -28,7 +28,6 @@ import { NavComponent } from './nav/nav.component';
     CounterComponent,
     BillComponent,
     NavComponent
-
   ],
   imports: [
     BrowserModule,

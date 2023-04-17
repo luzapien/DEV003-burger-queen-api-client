@@ -1,16 +1,13 @@
-.card-button {
-    /* transform: translate(-50%, 1%); */
+/* .card-button {
     border-radius: 1rem;
     border: none;
     background-color:  #730202;
     color: #fff;
     font-size: large;
     font-weight: bolder;
-    /* position: absolute; */
     opacity: 1;
     display: flex;
     justify-content: center;
-    /* transition: 0.3s ease-out; */
    }
 
 .formname{
@@ -22,4 +19,4 @@
 .labelName{
     display: flex;
     justify-content: center;
-}
+} */

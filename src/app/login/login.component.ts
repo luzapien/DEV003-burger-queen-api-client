@@ -43,7 +43,7 @@ export class LoginComponent {
     this.requestService.loginRequest(value).subscribe({
       next: (response) => {
         const { accessToken } = response
-        console.log('esto es el token',response)
+        console.log('esto es el token', response)
         this.cookieService.set('accessToken', accessToken);
         this.router.navigate(['home'])
       },
