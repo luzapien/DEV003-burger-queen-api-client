@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http'
-import { ListNameComponent } from './list-name/list-name.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
 import { CounterComponent } from './counter/counter.component';
 import { BillComponent } from './bill/bill.component';
@@ -21,7 +20,6 @@ import { NavComponent } from './nav/nav.component';
     LoginComponent,
     HomeComponent,
     PagenotfoundComponent,
-    ListNameComponent,
     KitchenComponent,
     CounterComponent,
     BillComponent,
