@@ -18,7 +18,7 @@ export class RequestService {
     return this.http.post<LoginResponse>(`${baseUrl}/login`, value)
   }
 
-  getProductsRequest(token: string) {
+  getProductsRequest(token: any) {
     const headers = new HttpHeaders({
       "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json; charset=UTF-8",

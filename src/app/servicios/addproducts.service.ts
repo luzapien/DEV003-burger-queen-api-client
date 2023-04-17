@@ -5,6 +5,9 @@ import { ProductService, Product } from 'src/types';
   providedIn: 'root'
 })
 export class AddProductService {
+  // static getProducts(): import("src/types").OrdersProduct {
+  //   throw new Error('Method not implemented.');
+  // }
   
   constructor() { }
   // Propiedad de array de strings en un array vacio

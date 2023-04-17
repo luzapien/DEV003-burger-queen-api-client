@@ -1,2 +1,10 @@
 <app-nav></app-nav>
+<div class="card col" style="width: 14rem" *ngFor="let ordernes of listaOr">
+    <!-- <img src={{ordernes.image}} width="100" class="mx-auto p-2 text-title" alt={{product.name}}> -->
+    <div class="card-body">
+        <h5 class="card-title">{{ordernes.client}}</h5>
+         <p class="card-text">{{ordernes.status}}</p> 
+        <!-- <button (click)="addProducts(product)" type="button" class="btn card-button">Add</button> --> -->
+    </div>
+</div>
 <app-list-name></app-list-name>
