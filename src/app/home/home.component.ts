@@ -27,7 +27,7 @@ export class HomeComponent{
   filteredProducts: Array<Product> = []
 
   getProducts(): void {
-    const token = this.cookieService.get('accessToken');
+    const token = localStorage.getItem('accessToken');
     this.requestService.getProductsRequest(token).subscribe({
       next: (response) => {
         console.log('estos son los productos',response)
@@ -54,7 +54,7 @@ export class HomeComponent{
   }
   addProducts(name:Product) {
     this.AddProductService.add(name);
-    console.log('adding', this.products)
+    console.log('adding', this.AddProductService.products)
   }
 
 }
