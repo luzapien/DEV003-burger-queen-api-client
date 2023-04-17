@@ -3,34 +3,46 @@
 		<h1>RECEIPT &nbsp; ----------- &nbsp; Date: {{date | date : "short"}}</h1>
 	</div>
 
-<div class="p-3 border bg-light txtlarge">
-</div>
-<div class="row">
-	<div class="col col-md-8 txtlarge"> Items </div>
-	<div class="col col-md-4 txtlarge"> Price </div>
-</div>
-<div class="row mt-3 mb-3">
-	<div>
-		<div *ngFor="let productObject of addProductService.products" class="itemFood d-flex">
-			<div class="col col-md-12">
-				<button type="button" class="btnClose" aria-label="Remove Item" (click)="removeProductsTicket(productObject.product.id)">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				{{productObject.product.name}}
-				<div>
-					<button (click)="[productObject.qty = productObject.qty + 1, totalPrice()]"> + </button>
-					<input type="text" class="form-control" value="{{productObject.qty}}" />
-					<button (click)="[productObject.qty = productObject.qty - 1,deleteProduct(),totalPrice()]"> - </button>
+	<div class="p-3 border bg-light txtlarge">
+	</div>
+	<div class="row">
+		<div class="col col-md-8 txtlarge"> Items </div>
+		<div class="col col-md-4 txtlarge"> Price </div>
+	</div>
+	<div class="row mt-3 mb-3">
+		<div>
+			<div *ngFor="let productObject of addProductService.products" class="itemFood d-flex">
+				<div class="col col-md-12">
+					<button type="button" class="btnClose" aria-label="Remove Item"
+						(click)="removeProductsTicket(productObject.product.id)">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					{{productObject.product.name}}
+					<div>
+						<button (click)="[productObject.qty = productObject.qty + 1, totalPrice()]"> + </button>
+						<input type="text" class="form-control" value="{{productObject.qty}}" />
+						<button (click)="[productObject.qty = productObject.qty - 1,deleteProduct(),totalPrice()]"> -
+						</button>
+					</div>
 				</div>
-			</div>
-			<div>
-				{{productObject.product.price * productObject.qty | currency:'USD'}}
+				<div>
+					{{productObject.product.price * productObject.qty | currency:'USD'}}
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<div class="row mt-3 mb-5">
-	<div class="col col-md-8 txtlarge"> TOTAL </div>
-	<div class="col col-md-4 txtlarge"> {{totalPrice() | currency:'USD'}} </div>
-</div>
+	<div class="row mt-3 mb-5">
+		<div class="col col-md-8 txtlarge"> TOTAL </div>
+		<div class="col col-md-4 txtlarge"> {{totalPrice() | currency:'USD'}} </div>
+		<form (ngSubmit)="addnames()" class="d-flex formname">
+			<div class="labelName">
+				<label class="form-label "> Order for: </label>
+				<input type="text" class="p-1" placeholder="Add name" name="name" [(ngModel)]="name">
+			</div>
+
+			<button (click)="traerPedidos()"class="btn card-button mt-1 mb-1">
+				Send to Kitchen
+			</button>
+		</form>
+	</div>

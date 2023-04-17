@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { AddProductService } from '../servicios/addproducts.service';
 import { RequestService } from '../servicios/request.service';
-import { Product } from 'src/types';
+import { Order, Product } from 'src/types';
 import { CookieService } from 'ngx-cookie-service';
+import { OrdersServiceService } from '../servicios/orders.service.service';
 
 @Component({
   selector: 'app-bill',
@@ -14,8 +15,13 @@ export class BillComponent {
   constructor(
     public addProductService: AddProductService,
     private requestService: RequestService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private ordersServiceService:OrdersServiceService
   ) { }
+  name: string = '';
+  date: Date = new Date();
+
+
   removeProductsTicket(productId: number) {
     this.addProductService.removeProductsTicket(productId);
   }
@@ -26,7 +32,6 @@ export class BillComponent {
     }, 0)
     return total
   }
-  date: Date = new Date();
   
   sendProducts(){
     this.date
@@ -35,6 +40,11 @@ export class BillComponent {
     // this.requestService.createOrder(order, token).subscribe({
     //   next:(response) => {
     console.log(this.addProductService.products, this.date)
+  }
+
+  addnames(){
+    this.addProductService.addName(this.name); 
+    this.name = ''; // clean the input 
   }
   
   increment(){
@@ -51,5 +61,21 @@ export class BillComponent {
     }
     public deleteProduct():void {
       this.addProductService.products = this.addProductService.products.filter((product) => product.qty > 0 )
+    }
+
+    traerPedidos(){
+      // const ticket= order 
+      const ORDERS: Order = {
+        userId: localStorage.getItem('userId') || "[]",
+        client: this.name,
+        products: this.addProductService.products,
+        status: 'pending',
+        dataEntry: this.date,
+        total: this.totalPrice(),
+      };
+      this.ordersServiceService.postOrderService(ORDERS)
+      .subscribe(respuesta =>{
+        console.log('Aqui',respuesta)
+      })
     }
   }

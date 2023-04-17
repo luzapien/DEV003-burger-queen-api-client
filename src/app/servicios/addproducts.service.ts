@@ -5,6 +5,9 @@ import { Product, ProductsService } from 'src/types';
   providedIn: 'root'
 })
 export class AddProductService {
+  // static getProducts(): import("src/types").OrdersProduct {
+  //   throw new Error('Method not implemented.');
+  // }
   
   constructor() { }
 // Propiedad de array de strings en un array vacio
@@ -36,5 +39,9 @@ export class AddProductService {
   addName(name: string){
     this.names.push(name);
   }
+
+  // static getProducts(): import("src/types").OrdersProduct{
+  //   return this.products;
+  // }
   
 }
