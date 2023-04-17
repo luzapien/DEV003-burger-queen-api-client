@@ -26,11 +26,25 @@ export class BillComponent {
     this.addProductService.removeProductsTicket(productId);
   }
 
-
   totalPrice() {
     const total = this.addProductService.products.reduce((pv, cv) => {
       return pv = pv + cv.product.price * cv.quantity
     }, 0)
     return total
   }
+  increment(){
+    this.addProductService.products.map((element)=>element.quantity++)
+  }
+  decrement(){
+    let productsNumber:any=0;
+    this.addProductService.products.forEach((element)=> {
+      if(element.quantity -1 < 0){
+        // element.qty--
+        return productsNumber;
+      }
+    })
+    }
+    public deleteProduct():void {
+      this.addProductService.products = this.addProductService.products.filter((product) => product.quantity > 0 )
+    }
 }
