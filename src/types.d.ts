@@ -39,7 +39,7 @@ export interface Order {
   id?: number;
   userId?: string;
   client?: string;
-  products?: ProductsService[];
+  products?: ProductService[];
   status: string;
   dataEntry?: any;
   total?: number;

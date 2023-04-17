@@ -4,6 +4,7 @@ import { RequestService } from '../servicios/request.service';
 import { Order, Product } from 'src/types';
 import { CookieService } from 'ngx-cookie-service';
 import { faTrashAlt, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { OrdersServiceService } from '../servicios/orders.service.service';
 
 @Component({
   selector: 'app-bill',
@@ -22,6 +23,7 @@ export class BillComponent {
   faPlus = faPlus;
   faMinus = faMinus;
   date: Date = new Date();
+  name:string = '';
 
   removeProductsTicket(productId: number) {
     this.addProductService.removeProductsTicket(productId);

@@ -43,9 +43,17 @@
 			</tr>
 		</tbody>
 	</table>
-	<div class="row mt-3"><app-add-name></app-add-name> </div>
+	<form (ngSubmit)="addnames()" class="d-flex formname">
+		<div class="labelName">
+		 <label class="form-label "> Order for: </label>
+		 <input type="text" class="p-1" placeholder="Add name" name="name" [(ngModel)]="name">
+		</div>
+ 
+		<button (click)="traerPedidos()"class="btn ml-3 card-button">
+		 Send to Kitchen
+		</button>
+	 </form>
 </div>
-
 <div *ngIf="!addProductService.products.length">
 	No products yet
 </div>
