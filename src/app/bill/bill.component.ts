@@ -3,6 +3,7 @@ import { AddProductService } from '../servicios/addproducts.service';
 import { RequestService } from '../servicios/request.service';
 import { Order, Product } from 'src/types';
 import { CookieService } from 'ngx-cookie-service';
+import { faTrashAlt, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { OrdersServiceService } from '../servicios/orders.service.service';
 
 @Component({
@@ -18,9 +19,11 @@ export class BillComponent {
     private cookieService: CookieService,
     private ordersServiceService:OrdersServiceService
   ) { }
-  name: string = '';
+  faTrash = faTrashAlt;
+  faPlus = faPlus;
+  faMinus = faMinus;
   date: Date = new Date();
-
+  name:string = '';
 
   removeProductsTicket(productId: number) {
     this.addProductService.removeProductsTicket(productId);
@@ -28,7 +31,7 @@ export class BillComponent {
 
   totalPrice() {
     const total = this.addProductService.products.reduce((pv, cv) => {
-      return pv = pv + cv.product.price * cv.qty
+      return pv = pv + cv.product.price * cv.quantity
     }, 0)
     return total
   }
@@ -48,19 +51,19 @@ export class BillComponent {
   }
   
   increment(){
-    this.addProductService.products.map((element)=>element.qty++)
+    this.addProductService.products.map((element)=>element.quantity++)
   }
   decrement(){
     let productsNumber:any=0;
     this.addProductService.products.forEach((element)=> {
-      if(element.qty-1 < 0){
+      if(element.quantity -1 < 0){
         // element.qty--
         return productsNumber;
       }
     })
     }
     public deleteProduct():void {
-      this.addProductService.products = this.addProductService.products.filter((product) => product.qty > 0 )
+      this.addProductService.products = this.addProductService.products.filter((product) => product.quantity > 0 )
     }
 
     traerPedidos(){

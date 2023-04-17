@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AddProductService } from '../servicios/addproducts.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Order,OrdersProduct,Product,ProductsService } from 'src/types';
+import { Order} from 'src/types';
 @Injectable({
   providedIn: 'root'
 })

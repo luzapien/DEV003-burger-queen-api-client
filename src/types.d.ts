@@ -16,10 +16,10 @@ export interface Product {
   price: number,
   type: string
 }
-export interface ProductsService{
-  product : Product,
-  qty:number,
 
+export interface ProductService {
+  product: Product,
+  quantity: number
 }
 
 export interface OrdersProduct {
@@ -39,7 +39,7 @@ export interface Order {
   id?: number;
   userId?: string;
   client?: string;
-  products?: ProductsService[];
+  products?: ProductService[];
   status: string;
   dataEntry?: any;
   total?: number;
