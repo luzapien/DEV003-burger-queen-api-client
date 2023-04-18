@@ -17,8 +17,9 @@ export class BillComponent {
     public addProductService: AddProductService,
     private requestService: RequestService,
     private cookieService: CookieService,
-    private ordersServiceService:OrdersServiceService
+    private ordersServiceService:OrdersServiceService,
   ) { }
+
   faTrash = faTrashAlt;
   faPlus = faPlus;
   faMinus = faMinus;
@@ -72,7 +73,7 @@ export class BillComponent {
         userId: localStorage.getItem('userId') || "[]",
         client: this.name,
         products: this.addProductService.products,
-        status: 'pending',
+        status: 'PENDING',
         dataEntry: this.date,
         total: this.totalPrice(),
       };
@@ -81,4 +82,5 @@ export class BillComponent {
         console.log('Aqui',respuesta)
       })
     }
+
   }

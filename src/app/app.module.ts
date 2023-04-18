@@ -9,11 +9,12 @@ import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http'
-import { ListNameComponent } from './list-name/list-name.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
 import { CounterComponent } from './counter/counter.component';
 import { BillComponent } from './bill/bill.component';
 import { NavComponent } from './nav/nav.component';
+import { CdTimerModule } from 'angular-cd-timer';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +22,6 @@ import { NavComponent } from './nav/nav.component';
     LoginComponent,
     HomeComponent,
     PagenotfoundComponent,
-    ListNameComponent,
     KitchenComponent,
     CounterComponent,
     BillComponent,
@@ -34,7 +34,8 @@ import { NavComponent } from './nav/nav.component';
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    CdTimerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
