@@ -1,25 +1,22 @@
 <app-nav></app-nav>
-<!-- <div class="card col" style="width: 14rem" *ngFor="let orders of listaOr">
-    <div class="card-body">
-        <h5 class="card-title">{{orders.client}}</h5>
-         <p class="card-text">{{orders.status}}</p> 
-         <p class="card-text">{{orders.total | currency:'USD'}}</p> 
-         <p class="card-text">{{orders.dataEntry}}</p> 
-         <p class="card-text">{{orders.products }}</p> 
-         
-    </div>
-</div> -->
 
-<div class="card" style="width: 18rem;" *ngFor="let orders of listaOr">
-    <div class="card-header">
-        <h5 class="card-title">{{orders.client}}</h5>
-        <p class="card-text">{{orders.dataEntry}}</p> 
-        <p class="card-text">{{orders.status}}</p> 
-    </div>
-    <div class="card col" style="width: 14rem" *ngFor="let listProds of orders.products">
-   <ul class="list-group list-group-flush">
-      <li class="list-group-item"> <p class="card-text">{{listProds.product.name}}</p> </li>
-      <li class="list-group-item"> <p class="card-text">{{listProds.quantity}}</p> </li>
-    </ul>
-    </div> 
-  </div>
+<div class="containerkitchen d-flex justify-content-center">
+
+    <div class="card text-center" *ngFor="let orders of listaOr">
+        <div class="card-header">
+            <h5 class="card-title">{{orders.client}}   -   -   -   {{orders.dataEntry | date : "short"}} - - - Status: {{orders.status}}</h5>
+        </div>
+        <div class="card-body">
+          <div *ngFor="let listProds of orders.products">
+            <h5 class="card-title"> {{listProds.quantity}} - {{listProds.product.name}} </h5>
+        <p class="card-text">  </p>
+        </div>
+          <button type="button" class="btn card-button">Order Ready! </button>
+        </div>
+        <div class="card-footer text-body-secondary">
+          Timer:  <cd-timer #timer format="intelli"></cd-timer>
+        </div>
+      </div>
+
+</div>
+
