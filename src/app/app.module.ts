@@ -13,7 +13,6 @@ import { KitchenComponent } from './kitchen/kitchen.component';
 import { CounterComponent } from './counter/counter.component';
 import { BillComponent } from './bill/bill.component';
 import { NavComponent } from './nav/nav.component';
-import { CdTimerModule } from 'angular-cd-timer';
 import { OrdersComponent } from './orders/orders.component';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -38,7 +37,6 @@ import { CookieService } from 'ngx-cookie-service';
     ReactiveFormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    CdTimerModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
