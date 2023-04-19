@@ -13,6 +13,8 @@ import { KitchenComponent } from './kitchen/kitchen.component';
 import { CounterComponent } from './counter/counter.component';
 import { BillComponent } from './bill/bill.component';
 import { NavComponent } from './nav/nav.component';
+import { OrdersComponent } from './orders/orders.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { NavComponent } from './nav/nav.component';
     KitchenComponent,
     CounterComponent,
     BillComponent,
-    NavComponent
+    NavComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { NavComponent } from './nav/nav.component';
     FontAwesomeModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
