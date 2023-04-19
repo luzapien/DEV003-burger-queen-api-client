@@ -2,21 +2,18 @@
 
 <div class="containerkitchen d-flex justify-content-center">
 
-    <div class="card text-center" *ngFor="let orders of listaOr">
-        <div class="card-header">
-            <h5 class="card-title">{{orders.client}}   -   -   -   {{orders.dataEntry | date : "short"}} - - - Status: {{orders.status}}</h5>
-        </div>
-        <div class="card-body">
-          <div *ngFor="let listProds of orders.products">
-            <h5 class="card-title"> {{listProds.quantity}} - {{listProds.product.name}} </h5>
-        <p class="card-text">  </p>
-        </div>
-          <button type="button" class="btn card-button">Order Ready! </button>
-        </div>
-        <div class="card-footer text-body-secondary">
-          Timer:  <cd-timer #timer format="intelli"></cd-timer>
-        </div>
-      </div>
-
+	<div class="card text-center" *ngFor="let orders of listaOr">
+		<div class="card-header">
+			<h5 class="card-title">{{orders.client}} - - - {{orders.dataEntry | date : "short"}} - - - Time:
+				{{orders.time | number:'1.0-0'}} min</h5>
+		</div>
+		<div class="card-body">
+			<div *ngFor="let listProds of orders.products">
+				<h5 class="card-title"> {{listProds.quantity}} - {{listProds.product.name}} </h5>
+			</div>
+			<button (click)="[updateOrdesM(orders.id, orders.dataEntry),refresh()]"class="btn card-button mt-1 mb-1">
+				Done
+		</button>
+		</div>
+	</div>
 </div>
-

@@ -13,7 +13,6 @@ import { KitchenComponent } from './kitchen/kitchen.component';
 import { CounterComponent } from './counter/counter.component';
 import { BillComponent } from './bill/bill.component';
 import { NavComponent } from './nav/nav.component';
-import { CdTimerModule } from 'angular-cd-timer';
 
 
 @NgModule({
@@ -35,7 +34,6 @@ import { CdTimerModule } from 'angular-cd-timer';
     ReactiveFormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    CdTimerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

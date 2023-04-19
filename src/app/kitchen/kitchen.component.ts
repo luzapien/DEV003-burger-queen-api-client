@@ -13,23 +13,47 @@ import { AddProductService } from '../servicios/addproducts.service';
 
 export class KitchenComponent {
 
-  
-  public listaOr: Order[]=[]
+
+  public listaOr: Order[] = []
+   // dataChange: any = new Date();
+   date: Date = new Date();
 
   constructor(
-    private ordersServiceService:OrdersServiceService,
-    public AddProductService : AddProductService
-  ){}
-  
-  ngOnInit():void{
-    this.cargarPedidos()
+    private ordersServiceService: OrdersServiceService,
+    public AddProductService: AddProductService
+  ) { }
+
+  ngOnInit(): void {
+    this.getOrdersM()
   }
-  cargarPedidos(){
+  getOrdersM() {
     this.ordersServiceService.getOrderService()
-    .subscribe(respuesta =>{
-      this.listaOr =respuesta;
-      console.log('Aqui',respuesta)
-    })
+      .subscribe(respuesta => {
+        this.listaOr = respuesta;
+        console.log('Aqui', respuesta)
+      })
   }
+
+  updateOrdesM(id: any, dateEntry: any) {
+    // const ticket= order 
+
+    const time = this.date
+    let diaEnMils = 60000
+    let days = new Date(time).getTime() - new Date(dateEntry).getTime();
+    let resultTime = (days / diaEnMils);
+    console.log(days)
+
+    const ORDERS: Order = {
+      status: 'Delivered',
+      dateProcessed: time,
+      time: resultTime
+    };
+
+    this.ordersServiceService.updateOrderService(id, ORDERS)
+      .subscribe(respuesta => {
+        console.log('Aqui', respuesta)
+      })
+  }
+  refresh(): void { window.location.reload(); }
 
 }
