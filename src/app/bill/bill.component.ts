@@ -81,6 +81,7 @@ export class BillComponent {
       .subscribe(respuesta =>{
         console.log('Aqui',respuesta)
       })
+      this.addProductService.products = [];
     }
 
   }

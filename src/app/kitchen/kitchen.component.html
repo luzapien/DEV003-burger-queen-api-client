@@ -11,8 +11,8 @@
 			<div *ngFor="let listProds of orders.products">
 				<h5 class="card-title"> {{listProds.quantity}} - {{listProds.product.name}} </h5>
 			</div>
-			<button (click)="[updateOrdesM(orders.id, orders.dataEntry),refresh()]"class="btn card-button mt-1 mb-1">
-				Done
+			<button type="button" (click)="[updateOrdesM(orders.id, orders.dataEntry),getOrdersM()]" class="btn card-button mt-1 mb-1">
+				ORDER READY			
 		</button>
 		</div>
 	</div>
