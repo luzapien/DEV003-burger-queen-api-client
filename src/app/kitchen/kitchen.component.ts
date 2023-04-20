@@ -13,7 +13,6 @@ import { AddProductService } from '../servicios/addproducts.service';
 
 export class KitchenComponent {
 
-
   public listaOr: Order[] = []
    // dataChange: any = new Date();
    date: Date = new Date();
@@ -54,6 +53,4 @@ export class KitchenComponent {
         console.log('Aqui', respuesta)
       })
   }
-  refresh(): void { window.location.reload(); }
-
 }
