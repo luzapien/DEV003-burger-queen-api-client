@@ -1,19 +1,22 @@
-<app-nav></app-nav>
-
-<div class="containerkitchen d-flex justify-content-center">
-
-	<div class="card text-center" *ngFor="let orders of listaOr">
-		<div class="card-header">
-			<h5 class="card-title">{{orders.client}} - - - {{orders.dataEntry | date : "short"}} - - - Time:
-				{{orders.time | number:'1.0-0'}} min</h5>
-		</div>
-		<div class="card-body">
-			<div *ngFor="let listProds of orders.products">
-				<h5 class="card-title"> {{listProds.quantity}} - {{listProds.product.name}} </h5>
+<div class="mainContainer">
+	<app-nav></app-nav>
+	<div class="containerkitchen d-flex justify-content-center">
+		<div class="card text-center" *ngFor="let orders of listaOr">
+			<div class="card-header">
+				<h5 class="card-title">{{orders.client}} - - - {{orders.dataEntry | date : "short"}} - - - Time:
+					{{orders.time | number:'1.0-0'}} min</h5>
 			</div>
-			<button type="button" (click)="[updateOrdesM(orders.id, orders.dataEntry),getOrdersM()]" class="btn card-button mt-1 mb-1">
-				ORDER READY			
-		</button>
+			<div class="card-body">
+				<div *ngFor="let listProds of orders.products">
+					<h5 class="card-title"> {{listProds.quantity}} - {{listProds.product.name}} </h5>
+				</div>
+			</div>
+			<ng-container *ngIf="orders.status === 'pending'">
+				<button type="button" id="orders.id" (click)="[updateOrdesM(orders.id, orders.dataEntry),getOrdersM()]"
+					class="btn card-button mt-1 mb-1">
+					ORDER READY
+				</button>
+			</ng-container>
 		</div>
 	</div>
 </div>

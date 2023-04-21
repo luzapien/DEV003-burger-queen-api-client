@@ -15,6 +15,8 @@ import { BillComponent } from './bill/bill.component';
 import { NavComponent } from './nav/nav.component';
 import { OrdersComponent } from './orders/orders.component';
 import { CookieService } from 'ngx-cookie-service';
+import { OrdersDeliveredComponent } from './orders-delivered/orders-delivered.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { CookieService } from 'ngx-cookie-service';
     CounterComponent,
     BillComponent,
     NavComponent,
-    OrdersComponent
+    OrdersComponent,
+    OrdersDeliveredComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

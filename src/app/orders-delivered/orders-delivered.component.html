@@ -1,7 +1,7 @@
 <app-nav></app-nav>
-<div class="secondContainer">
+<div class="mainContainer">
   <div class="containerkitchen d-flex justify-content-center" *ngFor="let orders of listaOr">
-    <ng-container *ngIf="orders.status === 'Cooked'">
+    <ng-container *ngIf="orders.status === 'Delivered'">
       <div class="card text-center">
         <div class="card-header">
           <h5 class="card-title">{{orders.client}} - - - {{orders.dataEntry | date : "short"}} - - - Time:
@@ -14,10 +14,6 @@
             <h5 class="card-title"> {{listProds.quantity}} - {{listProds.product.name}} </h5>
           </div>
         </div>
-        <button type="button" id="orders.id" class="btn card-button mt-1 mb-1"
-          (click)="[updateOrdesM(orders.id, orders.dataEntry), getOrdersM()]">
-          ORDER READY
-        </button>
       </div>
     </ng-container>
   </div>

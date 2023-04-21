@@ -73,7 +73,7 @@ export class BillComponent {
         userId: localStorage.getItem('userId') || "[]",
         client: this.name,
         products: this.addProductService.products,
-        status: 'PENDING',
+        status: 'pending',
         dataEntry: this.date,
         total: this.totalPrice(),
       };

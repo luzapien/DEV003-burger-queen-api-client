@@ -14,12 +14,14 @@ import { AddProductService } from '../servicios/addproducts.service';
 export class KitchenComponent {
 
   public listaOr: Order[] = []
-   // dataChange: any = new Date();
-   date: Date = new Date();
+  // dataChange: any = new Date();
+  date: Date = new Date();
+  public isButtonVisible = true;
+
 
   constructor(
     private ordersServiceService: OrdersServiceService,
-    public AddProductService: AddProductService
+    public addProductService: AddProductService
   ) { }
 
   ngOnInit(): void {
@@ -34,16 +36,14 @@ export class KitchenComponent {
   }
 
   updateOrdesM(id: any, dateEntry: any) {
-    // const ticket= order 
-
     const time = this.date
-    let diaEnMils = 60000
-    let days = new Date(time).getTime() - new Date(dateEntry).getTime();
-    let resultTime = (days / diaEnMils);
-    console.log(days)
+    let minuteInMiliSeconds = 60000
+    let datesInMiliSeconds = new Date(time).getTime() - new Date(dateEntry).getTime();
+    let resultTime = (datesInMiliSeconds / minuteInMiliSeconds);
+    console.log(datesInMiliSeconds)
 
     const ORDERS: Order = {
-      status: 'Delivered',
+      status: 'Cooked',
       dateProcessed: time,
       time: resultTime
     };
@@ -51,6 +51,15 @@ export class KitchenComponent {
     this.ordersServiceService.updateOrderService(id, ORDERS)
       .subscribe(respuesta => {
         console.log('Aqui', respuesta)
+       
       })
+    //   if(ORDERS.id){
+    //     this.isButtonVisible = false
+    //   }
+    //  this.isButtonVisible
+    // this.isButtonVisible = false
   }
+
+
+
 }
