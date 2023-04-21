@@ -6,6 +6,8 @@ import { KitchenComponent } from './kitchen/kitchen.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
 import { OrdersComponent } from './orders/orders.component';
 import { BlockRoutesGuard } from './block-routes.guard';
+import { OrdersDeliveredComponent } from './orders-delivered/orders-delivered.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [{
   path: 'login',
@@ -24,6 +26,16 @@ const routes: Routes = [{
 {
   path: 'orders',
   component: OrdersComponent,
+  canActivate: [BlockRoutesGuard]
+},
+{
+  path: 'orders delivered',
+  component: OrdersDeliveredComponent,
+  canActivate: [BlockRoutesGuard]
+},
+{
+  path: 'admin',
+  component: AdminComponent,
   canActivate: [BlockRoutesGuard]
 },
 {

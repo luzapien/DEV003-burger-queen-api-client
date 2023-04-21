@@ -1,12 +1,12 @@
 .ticket{
     background-color: #F2F2F2;
     opacity: 85%;
-    /* height: 70vh; */
+    height: 70vh;
     padding: 1rem;
     border-radius: 1rem;
     border: 2px solid #05060f;
     box-shadow: .4rem .4rem #05060f;
-    overflow: hidden;
+    overflow:scroll;
 }
 
 .btnFood {
@@ -76,4 +76,7 @@
     overflow: auto;
     height: 60vh;
  }
-   
+
+ .mainContainer{
+  height: 90vh;
+ }
