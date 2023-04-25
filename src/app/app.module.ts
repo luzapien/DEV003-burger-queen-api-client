@@ -15,6 +15,8 @@ import { KitchenComponent } from './kitchen/kitchen.component';
 import { CounterComponent } from './counter/counter.component';
 import { BillComponent } from './bill/bill.component';
 import { NavComponent } from './nav/nav.component';
+import { AdminComponent } from './admin/admin.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { NavComponent } from './nav/nav.component';
     KitchenComponent,
     CounterComponent,
     BillComponent,
-    NavComponent
+    NavComponent,
+    AdminComponent,
+    ModalComponent
 
   ],
   imports: [

@@ -32,4 +32,12 @@ export class RequestService {
     })
     return this.http.post<Product>(' http://localhost:8080/orders',{headers})
   }
+
+  deletePost(id:number,token: string){
+    const headers = new HttpHeaders({
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json; charset=UTF-8",
+    })
+    return this.http.delete<Product>(' http://localhost:8080/products'+'/'+id, {headers});
+  }
 }

@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
+import { AdminComponent } from './admin/admin.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 const routes: Routes = [{
@@ -17,6 +19,14 @@ const routes: Routes = [{
 {
   path: 'kitchen',
   component: KitchenComponent
+},
+{
+  path: 'admin',
+ component: AdminComponent
+},
+{
+  path: 'modal',
+ component: ModalComponent
 },
 {
   path: '',
