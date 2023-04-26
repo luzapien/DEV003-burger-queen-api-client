@@ -1,55 +1,33 @@
 <app-nav></app-nav>
-<div class="container p-2 mt-4">
-	<div class="row justify-content-start align-items-start gx-5">
-	
-		<div class="col col-md-5 ticket">
-			<app-bill></app-bill>
-		</div>
-		<!-- Column for food -->
-		<div class="col col-md-7">
-			<div class="d-flex gap-3 justify-content-center mb-2">
-				<button (click)="filterByFoodType('Desayuno')" class="btn btn-dark btnFood">BREAKFAST</button>
-				<button (click)="filterByFoodType('Almuerzo')" class="btn btn-dark btnFood">LUNCH/DINNER</button>
-				<button (click)="filterByFoodType('all')" class="btn btn-dark btnFood">ALL</button>
-      
-			</div>
-			<div class="row gap-2 row-cols-3">
-				<div class="card col" style="width: 14rem;" *ngFor="let product of filteredProducts">
-				
-					<img src={{product.image}} width="100" class="mx-auto p-2" alt={{product.name}}>
-					<div class="card-body">
-						<h5 class="card-title">{{product.name}}</h5>
-						<p class="card-text">{{formatPrice(product.price)}}</p>
-						<button (click)="showModal(product.id)"type="button" class="btn btn-primary">Edit</button>
-            <button (click)="[deleteProducts(product.id), getProducts()]" type="button" class="btn btn-primary">Delete</button>
-						<!-- <ng-component *ngIf="modalSwitch === true"> -->
-							<ng-component *ngIf="modalSwitch === true">
-								<app-modal></app-modal>
-							</ng-component>
-								
-								<!-- <form class="modalContent">
-									<label for=""> Image: <br>
-										<input type="text" data-value="{{product.image}}"> 
-									</label>
-									<label for=""> Product name:
-										<input type="text" data-value="{{product.name}}"> 
-									</label>
-									<label for=""> Price:
-										<input type="text" data-value="{{product.price}}"> 
-									</label>
-									<label for=""> type(brakfast or lunch):
-										<input type="text" data-value="{{product.type}}"> 
-									</label>
-									<button (click)="modalSwitch = false">Close</button>
-								</form> -->
-							
-						<!-- </ng-component> -->
-				
+<div class="row gap-2 row-cols-3">
+	<div class="card col" style="width: 14rem;" *ngFor="let product of filteredProducts">
 
-					
-				</div>
+		<img src={{product.image}} width="100" class="mx-auto p-2" alt={{product.name}}>
+		<div class="card-body">
+			<h5 class="card-title">{{product.name}}</h5>
+			<p class="card-text">{{formatPrice(product.price)}}</p>
+			<div class="d-flex gap-1">
+				<button (click)="showModal(product)" type="button" class="btn btn-primary">Edit</button>
+				<button (click)="[deleteProducts(product.id), getProducts()]" type="button"
+					class="btn btn-primary">Delete</button>
 			</div>
 		</div>
 	</div>
-
+	<ng-container *ngIf="modalSwitch && currentProduct">
+		<div class="modalContainer">
+			<form class="modalContent" #loginForm="ngForm" (ngSubmit)="updateData(loginForm.value)">
+				<label for=""> Product name :
+					<input type="text" [ngModel]="currentProduct.name" name="name">
+				</label>
+				<label for=""> Price :
+					<input type="text" [ngModel]="currentProduct.price" name="price">
+				</label>
+				<label for=""> Type :
+					<input type="text" [ngModel]="currentProduct.type" name="type">
+				</label>
+				<button type="submit">Save</button>
+				<button (click)="closeModal()">X</button>
+			</form>
+		</div>
+	</ng-container>
 </div>

@@ -13,7 +13,12 @@ export class AddProductService {
   // Propiedad de array de strings en un array vacio
   products: ProductService[] = [];
   names: string[] = [];
+  productsArray: Product[] = []
 
+
+   adding(product: Product){
+    this.productsArray.push(product)
+   }
   add(product: Product) {
     // this.products.push(product);
     const productExists = this.products.some((item) => item.product.id === product.id)

@@ -30,5 +30,5 @@
 
 .mainContainer {
   height: 80vh;
-  overflow: scroll;
+  overflow: auto;
 }
