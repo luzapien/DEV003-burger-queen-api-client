@@ -1,33 +1,11 @@
-<app-nav></app-nav>
-<div class="row gap-2 row-cols-3">
-	<div class="card col" style="width: 14rem;" *ngFor="let product of filteredProducts">
 
-		<img src={{product.image}} width="100" class="mx-auto p-2" alt={{product.name}}>
-		<div class="card-body">
-			<h5 class="card-title">{{product.name}}</h5>
-			<p class="card-text">{{formatPrice(product.price)}}</p>
-			<div class="d-flex gap-1">
-				<button (click)="showModal(product)" type="button" class="btn btn-primary">Edit</button>
-				<button (click)="[deleteProducts(product.id), getProducts()]" type="button"
-					class="btn btn-primary">Delete</button>
-			</div>
-		</div>
-	</div>
-	<ng-container *ngIf="modalSwitch && currentProduct">
-		<div class="modalContainer">
-			<form class="modalContent" #loginForm="ngForm" (ngSubmit)="updateData(loginForm.value)">
-				<label for=""> Product name :
-					<input type="text" [ngModel]="currentProduct.name" name="name">
-				</label>
-				<label for=""> Price :
-					<input type="text" [ngModel]="currentProduct.price" name="price">
-				</label>
-				<label for=""> Type :
-					<input type="text" [ngModel]="currentProduct.type" name="type">
-				</label>
-				<button type="submit">Save</button>
-				<button (click)="closeModal()">X</button>
-			</form>
-		</div>
-	</ng-container>
+<app-nav></app-nav>
+
+<div class="btnContainer">
+  <a class="nav-link" [routerLink]="'admin-products'" class="btn btnFood" href="#" role="button" >Products</a>
+  <button type="button" class="btn"> Users</button>
 </div>
+<div>
+	<router-outlet></router-outlet> 
+</div>
+

@@ -8,6 +8,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { BlockRoutesGuard } from './block-routes.guard';
 import { OrdersDeliveredComponent } from './orders-delivered/orders-delivered.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 
 const routes: Routes = [{
   path: 'login',
@@ -36,7 +37,9 @@ const routes: Routes = [{
 {
   path: 'admin',
   component: AdminComponent,
-  canActivate: [BlockRoutesGuard]
+  canActivate: [BlockRoutesGuard],
+  children: [
+    { path: 'admin-products', component: AdminProductsComponent}]
 },
 {
   path: '',
