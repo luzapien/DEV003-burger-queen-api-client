@@ -38,7 +38,7 @@
 .containerkitchen{
     flex-wrap: wrap;
     height: 80vh;
-    overflow: scroll;
+    overflow: auto;
 } 
 
 .card-title{

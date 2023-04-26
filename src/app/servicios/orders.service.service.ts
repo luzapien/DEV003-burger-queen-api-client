@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AddProductService } from '../servicios/addproducts.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Order} from 'src/types';
+import { Order, Product} from 'src/types';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ export class OrdersServiceService {
 
 
   url:string = 'http://localhost:8080/orders';
+  urlProducts:string = 'http://localhost:8080/products'
   // api_key = sessionStorage.setItem("token", "accesstoken");
   accessToken = localStorage.getItem('accessToken');
   // accessToken =  this.cookieService.get('accessToken');
@@ -37,5 +38,8 @@ export class OrdersServiceService {
     const urlPatch = `${this.url}/${id}`;   // PATCH api/heroes/42
     return this.http.patch<Order>(urlPatch, updateOrder, this.httpOptions);
   }
-
+  updateProductService(id: any, updateProduct: Product):Observable<Product> {
+    const urlPatch = `${this.urlProducts}/${id}`;   // PATCH api/heroes/42
+    return this.http.patch<Product>(urlPatch, updateProduct, this.httpOptions);
+  }
 }

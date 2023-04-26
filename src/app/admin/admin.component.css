@@ -1,3 +1,15 @@
-.mainContainer{
-  height: 80vh;
+.modalContainer{
+  display: block;
+  align-items: center;
+  border: 1px solid black;
+  position:absolute;
+  z-index:3;
 }
+input{
+  width:10rem;
+  background-color: aquamarine;
+}
+
+/* .modalContent{
+  width: ;;
+} */

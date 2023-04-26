@@ -50,4 +50,12 @@ export class RequestService {
     }
     return this.http.post(`${baseUrl}/orders`, body, httpOptions)
   }
+
+  deletePost(id:number,token: string){
+    const headers = new HttpHeaders({
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json; charset=UTF-8",
+    })
+    return this.http.delete<Product>(' http://localhost:8080/products'+'/'+id, {headers});
+  }
 }

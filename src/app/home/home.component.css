@@ -6,7 +6,7 @@
     border-radius: 1rem;
     border: 2px solid #05060f;
     box-shadow: .4rem .4rem #05060f;
-    overflow:scroll;
+    overflow:auto;
 }
 
 .btnFood {

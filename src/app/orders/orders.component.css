@@ -33,7 +33,7 @@
 
 .containerkitchen{
     flex-wrap: wrap;
-    overflow: scroll;
+    overflow: auto;
 } 
 .card-title{
     font-weight: bold;
@@ -41,5 +41,5 @@
 
 .secondContainer{
     height: 80vh;
-    overflow: scroll;
+    overflow: auto;
 } 

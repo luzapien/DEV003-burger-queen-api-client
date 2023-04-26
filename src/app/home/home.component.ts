@@ -22,8 +22,7 @@ export class HomeComponent{
   ) {
     this.getProducts()
   }
-  @Input() item?: string;
-
+  //@Input() item?: string;
   products: Array<Product> = []
   filteredProducts: Array<Product> = []
 
