@@ -1,4 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+body {
     background-color: #EFB45D;
+    font-family: 'Cedora', sans-serif;
+    position: relative;
+    min-height: 100%;
+}
+
+app-home{
+        display: block;
+        height: 80vh;  
+}
+
+.btn-custom {
+    --bs-btn-bg: #730202;
+    --bs-btn-border-color: #730202;
+    --bs-btn-hover-bg: #990202;
+    --bs-btn-hover-border-color: #990202;
+    --bs-btn-active-bg: #990202;
+    --bs-btn-active-border-color: #990202;
+    --bs-btn-color: white;
+    --bs-btn-hover-color: white;
 }

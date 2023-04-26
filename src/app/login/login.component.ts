@@ -43,8 +43,12 @@ export class LoginComponent {
     this.requestService.loginRequest(value).subscribe({
       next: (response) => {
         const { accessToken } = response
+        const { user } = response
         console.log('esto es el token',response)
-        this.cookieService.set('accessToken', accessToken);
+        this.cookieService.set('accessToken', accessToken,4,'/');
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('userId', user.id);
+        console.log(localStorage.getItem('userId'));
         this.router.navigate(['home'])
       },
       error: (error) => {

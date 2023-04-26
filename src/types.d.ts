@@ -1,6 +1,6 @@
 export interface User {
   email: string,
-  id: number,
+  id: string,
   role: string
 }
 export interface LoginResponse {
@@ -15,4 +15,35 @@ export interface Product {
   name: string,
   price: number,
   type: string
+}
+
+export interface ProductService {
+  product: Product,
+  quantity: number
+}
+
+export interface OrdersProduct {
+  qty: number;
+  total: number;
+  product: {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+    type: string;
+    dateEntry: string;
+  };
+}
+
+export interface Order {
+  id?: number;
+  userId?: string;
+  client?: string;
+  products?: ProductService[];
+  status: string;
+  dataEntry?: any;
+  total?: number;
+  dateProcessed?: any;
+  dataPrepare?: any;
+  time?: any;
 }

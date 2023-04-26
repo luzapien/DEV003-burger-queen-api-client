@@ -1,29 +1,21 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { OrdersServiceService } from '../servicios/orders.service.service';
-import { Order } from 'src/types';
 import { AddProductService } from '../servicios/addproducts.service';
-
+import { Order } from 'src/types';
 
 @Component({
-  selector: 'app-kitchen',
-  templateUrl: './kitchen.component.html',
-  styleUrls: ['./kitchen.component.css'],
+  selector: 'app-orders',
+  templateUrl: './orders.component.html',
+  styleUrls: ['./orders.component.css']
 })
-
-
-export class KitchenComponent {
-
+export class OrdersComponent {
   public listaOr: Order[] = []
-  // dataChange: any = new Date();
   date: Date = new Date();
-  public isButtonVisible = true;
-
-
+  
   constructor(
-    private ordersServiceService: OrdersServiceService,
+    public ordersServiceService: OrdersServiceService,
     public addProductService: AddProductService
   ) { }
-
   ngOnInit(): void {
     this.getOrdersM()
   }
@@ -34,7 +26,12 @@ export class KitchenComponent {
         console.log('Aqui', respuesta)
       })
   }
-
+  totalPrice() {
+    const total = this.addProductService.products.reduce((pv, cv) => {
+      return pv = pv + cv.product.price * cv.quantity
+    }, 0)
+    return total
+  }
   updateOrdesM(id: any, dateEntry: any) {
     const time = this.date
     let minuteInMiliSeconds = 60000
@@ -43,7 +40,7 @@ export class KitchenComponent {
     console.log(datesInMiliSeconds)
 
     const ORDERS: Order = {
-      status: 'Cooked',
+      status: 'Delivered',
       dateProcessed: time,
       time: resultTime
     };
@@ -59,7 +56,6 @@ export class KitchenComponent {
     //  this.isButtonVisible
     // this.isButtonVisible = false
   }
-
 
 
 }

@@ -9,14 +9,15 @@ import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http'
-import { AddNameComponent } from './add-name/add-name.component';
-import { ListNameComponent } from './list-name/list-name.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
 import { CounterComponent } from './counter/counter.component';
 import { BillComponent } from './bill/bill.component';
 import { NavComponent } from './nav/nav.component';
+import { OrdersComponent } from './orders/orders.component';
+import { CookieService } from 'ngx-cookie-service';
+import { OrdersDeliveredComponent } from './orders-delivered/orders-delivered.component';
 import { AdminComponent } from './admin/admin.component';
-import { ModalComponent } from './modal/modal.component';
+
 
 @NgModule({
   declarations: [
@@ -24,15 +25,13 @@ import { ModalComponent } from './modal/modal.component';
     LoginComponent,
     HomeComponent,
     PagenotfoundComponent,
-    AddNameComponent,
-    ListNameComponent,
     KitchenComponent,
     CounterComponent,
     BillComponent,
     NavComponent,
-    AdminComponent,
-    ModalComponent
-
+    OrdersComponent,
+    OrdersDeliveredComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +40,9 @@ import { ModalComponent } from './modal/modal.component';
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

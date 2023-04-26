@@ -1,0 +1,20 @@
+<app-nav></app-nav>
+<div class="mainContainer">
+  <div class="containerkitchen d-flex justify-content-center" *ngFor="let orders of listaOr">
+    <ng-container *ngIf="orders.status === 'Delivered'">
+      <div class="card text-center">
+        <div class="card-header">
+          <h5 class="card-title">{{orders.client}} - - - {{orders.dataEntry | date : "short"}} - - - Time:
+            {{orders.time | number:'1.0-0'}} min</h5>
+          <h5 class="card-title">Total: {{orders.total | currency : 'USD'}} </h5>
+          <h5 class="card-title">Status: {{orders.status}}</h5>
+        </div>
+        <div class="card-body">
+          <div *ngFor="let listProds of orders.products">
+            <h5 class="card-title"> {{listProds.quantity}} - {{listProds.product.name}} </h5>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

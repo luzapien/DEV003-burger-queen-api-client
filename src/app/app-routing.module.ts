@@ -4,9 +4,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
+import { OrdersComponent } from './orders/orders.component';
+import { BlockRoutesGuard } from './block-routes.guard';
+import { OrdersDeliveredComponent } from './orders-delivered/orders-delivered.component';
 import { AdminComponent } from './admin/admin.component';
-import { ModalComponent } from './modal/modal.component';
-
 
 const routes: Routes = [{
   path: 'login',
@@ -15,18 +16,27 @@ const routes: Routes = [{
 {
   path: 'home', 
   component: HomeComponent,
+  canActivate: [BlockRoutesGuard]
 },
 {
   path: 'kitchen',
-  component: KitchenComponent
+  component: KitchenComponent,
+  canActivate: [BlockRoutesGuard]
+},
+{
+  path: 'orders',
+  component: OrdersComponent,
+  canActivate: [BlockRoutesGuard]
+},
+{
+  path: 'orders delivered',
+  component: OrdersDeliveredComponent,
+  canActivate: [BlockRoutesGuard]
 },
 {
   path: 'admin',
- component: AdminComponent
-},
-{
-  path: 'modal',
- component: ModalComponent
+  component: AdminComponent,
+  canActivate: [BlockRoutesGuard]
 },
 {
   path: '',
