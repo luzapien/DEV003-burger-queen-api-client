@@ -1,7 +1,46 @@
 <div class="mainContainer">
 	<app-nav></app-nav>
 	<div class="containerkitchen d-flex justify-content-center">
+
 		<div class="card text-center" *ngFor="let orders of listaOr">
+			<div class="card-header">
+				<h5 class="card-title"> Order for: {{orders.client}}</h5>
+			</div>
+		<table class="table">
+			
+			<thead>
+			  <tr>
+				<th scope="col">Date: {{orders.dataEntry | date : "short"}}</th>
+				<th scope="col">Production time: {{orders.time | number:'1.0-0'}} min</th>
+			  </tr>
+			  <tr>
+				<th scope="col">Quantity: </th>
+				<th scope="col">Products: </th>
+			  </tr>
+			</thead>
+
+			
+				<tbody *ngFor="let listProds of orders.products">
+					<tr>
+					  <td> {{listProds.quantity}} </td>
+					  <td> {{listProds.product.name}} </td>
+					</tr>
+				  </tbody>
+		
+				  <ng-container *ngIf="orders.status === 'pending'">
+					<button type="button" id="orders.id" (click)="[updateOrdesM(orders.id, orders.dataEntry),getOrdersM()]"
+						class="card-button mt-1 mb-1">
+						ORDER READY
+					</button>
+				</ng-container>
+
+			
+		  </table>
+		</div>
+
+
+		
+		<!-- <div class="card text-center" *ngFor="let orders of listaOr">
 			<div class="card-header">
 				<h5 class="card-title">{{orders.client}} - - - {{orders.dataEntry | date : "short"}} - - - Time:
 					{{orders.time | number:'1.0-0'}} min</h5>
@@ -17,6 +56,7 @@
 					ORDER READY
 				</button>
 			</ng-container>
-		</div>
+		</div> -->
 	</div>
 </div>
+
