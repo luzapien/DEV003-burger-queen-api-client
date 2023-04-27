@@ -18,6 +18,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { OrdersDeliveredComponent } from './orders-delivered/orders-delivered.component';
 import { AdminComponent } from './admin/admin.component';
 import { ModalComponent } from './modal/modal.component';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ModalComponent } from './modal/modal.component';
     OrdersComponent,
     OrdersDeliveredComponent,
     AdminComponent,
-    ModalComponent
+    ModalComponent,
+    AdminProductsComponent
   ],
   imports: [
     BrowserModule,

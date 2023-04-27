@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
+import { RequestService } from 'src/app/servicios/request.service';
+import type { Product } from 'src/types';
+import { AddProductService } from 'src/app/servicios/addproducts.service';
+import { CookieService } from 'ngx-cookie-service';
+import { OrdersServiceService } from 'src/app/servicios/orders.service.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css'],
+  selector: 'app-admin-products',
+  templateUrl: './admin-products.component.html',
+  styleUrls: ['./admin-products.component.css']
 })
-export class AdminComponent {
+export class AdminProductsComponent {
   constructor(
     private requestService: RequestService,
     private cookieService: CookieService,
@@ -18,14 +24,8 @@ export class AdminComponent {
   date: any = new Date()
   products: Array<Product> = []
   filteredProducts: Array<Product> = []
+  modalSwitch: boolean = false
   currentProduct: Product | null = null
-
-
-  // formUser = new FormGroup({
-  //   'name': new FormControl(),
-  //   'price': new FormControl(),
-  //   'type': new FormControl()
-  // })
 
   getProducts(): void {
     const token = this.cookieService.get('accessToken');
@@ -65,12 +65,13 @@ export class AdminComponent {
         console.log('producto eliminado:', response)
       });
   }
-  
-  onShowModal(product: Product) {
+  showModal(product: Product) {
+    this.modalSwitch = true
     this.currentProduct = product
   }
 
-  onCloseModal() {
+  closeModal() {
+    this.modalSwitch = false
     this.currentProduct = null
   }
 
@@ -84,16 +85,12 @@ export class AdminComponent {
         id: this.currentProduct.id,
         image: value.image
       }
-      const closeModalBtn = document.getElementById('closeModalBtn')
+
       this.ordersServiceService.updateProductService(this.currentProduct.id, PRODUCTS)
-        .subscribe({
-          next: (response) => {
-            closeModalBtn?.click()
-            this.onCloseModal()
-            this.getProducts()
-            console.log(response)
-          }
+        .subscribe(respuesta => {
+          console.log('Aqui', respuesta)
         })
     }
   }
+
 }
