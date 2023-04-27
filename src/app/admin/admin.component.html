@@ -1,11 +1,13 @@
 
 <app-nav></app-nav>
-
+<div class="mainContainer">
 <div class="btnContainer">
-  <a class="nav-link" [routerLink]="'admin-products'" class="btn btnFood" href="#" role="button" >Products</a>
-  <button type="button" class="btn"> Users</button>
+  <a class="nav-link" [routerLink]="'admin-products'" class="btnFood" href="#" role="button" >Products</a>
+  <button type="button" class="btnFood"> Users</button>
 </div>
-<div>
+<div class="productsContainer">
 	<router-outlet></router-outlet> 
 </div>
+</div>
+
 

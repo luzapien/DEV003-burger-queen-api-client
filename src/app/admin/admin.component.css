@@ -1,19 +1,53 @@
-/* .modalContent{
-  width: ;;
-} */
-/* .mainContainer{
+.mainContainer {
   height: 80vh;
-  flex-wrap: wrap;
-} */
-.btnContainer{
-  /* display: flex; */
+  overflow: auto;
+  display: flex;
   justify-content: center;
-  /* align-items: start; */
-  /* position:absolute; */
-  top: 55px;
-  /* margin: 0 auto; */
-  /* margin-bottom: 10vh; */
-  
+}
+
+.btnContainer{
+  /* margin-top: 20px; */
+  position: absolute;
+}
+
+.productsContainer{
+  margin-top: 110px;
+  position: absolute;
+  height: 65vh;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btnFood {
+  position: relative;
+  display: inline-block;
+  margin: 25px;
+  padding: 15px;
+  text-align: center;
+  font-size: larger;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: bolder;
+  color: black;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 3px solid black;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 orange;
+}
+
+.btnFood:hover {
+  color: white;
+  box-shadow: inset 0 -100px 0 0 black;
+}
+
+.btnFood:active {
+  transform: scale(0.9);
 }
 
 .card{
@@ -51,29 +85,3 @@
   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
  }
 
- .btnFood {
-  /* position: relative;
-  display: inline-block; */
-  margin: 5px;
-  padding: 10px;
-  text-align: center;
-  font-size: 18px;
-  letter-spacing: 1px;
-  text-decoration: none;
-  color: black;
-  background: transparent;
-  cursor: pointer;
-  /* transition: ease-out 0.5s; */
-  border: 3px solid black;
-  border-radius: 10px;
-  box-shadow: inset 0 0 0 0 orange;
-}
-
-.btnFood:hover {
-  color: white;
-  box-shadow: inset 0 -100px 0 0 black;
-}
-
-.btnFood:active {
-  transform: scale(0.9);
-}
