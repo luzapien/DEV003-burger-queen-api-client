@@ -43,13 +43,13 @@
 			</tr>
 		</tbody>
 	</table>
-	<form (ngSubmit)="addnames()" class="d-flex align-items-center gap-2 justify-content-center">
-    <label class="form-label">Order for:</label>
-    <input type="text" class="form-control" style="width:180px;" placeholder="Add name" name="name" [(ngModel)]="name">
-    <button class="btn card-button mt-1 mb-1" (click)="traerPedidos()"> 
+	<form (ngSubmit)="traerPedidos()" class="d-flex align-items-center gap-2 justify-content-center">
+		<label class="form-label">Order for:</label>
+		<input type="text" class="form-control" style="width:180px;" placeholder="Add name" name="name" [(ngModel)]="name">
+		<button class="btn card-button mt-1 mb-1" type="submit">
 			Send to kitchen
-    </button>
-</form>
+		</button>
+	</form>
 </div>
 <div *ngIf="!addProductService.products.length">
 	No products yet

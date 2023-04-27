@@ -24,7 +24,6 @@ export class AdminComponent {
   date: any = new Date()
   products: Array<Product> = []
   filteredProducts: Array<Product> = []
-  modalSwitch: boolean = false
   currentProduct: Product | null = null
 
 
@@ -72,13 +71,12 @@ export class AdminComponent {
         console.log('producto eliminado:', response)
       });
   }
-  showModal(product: Product) {
-    this.modalSwitch = true
+  
+  onShowModal(product: Product) {
     this.currentProduct = product
   }
 
-  closeModal() {
-    this.modalSwitch = false
+  onCloseModal() {
     this.currentProduct = null
   }
 
@@ -92,10 +90,15 @@ export class AdminComponent {
         id: this.currentProduct.id,
         image: value.image
       }
-
+      const closeModalBtn = document.getElementById('closeModalBtn')
       this.ordersServiceService.updateProductService(this.currentProduct.id, PRODUCTS)
-        .subscribe(respuesta => {
-          console.log('Aqui', respuesta)
+        .subscribe({
+          next: (response) => {
+            closeModalBtn?.click()
+            this.onCloseModal()
+            this.getProducts()
+            console.log(response)
+          }
         })
     }
   }
