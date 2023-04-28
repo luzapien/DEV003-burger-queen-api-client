@@ -4,17 +4,32 @@
     <ng-container *ngIf="orders.status === 'Delivered'">
       <div class="card text-center">
         <div class="card-header">
-          <h5 class="card-title">{{orders.client}} - - - {{orders.dataEntry | date : "short"}} - - - Time:
-            {{orders.time | number:'1.0-0'}} min</h5>
-          <h5 class="card-title">Total: {{orders.total | currency : 'USD'}} </h5>
-          <h5 class="card-title">Status: {{orders.status}}</h5>
+          <h5 class="card-title"> 
+            <div class="row">
+              <div class="col-6">
+                <strong> Status </strong>: <p>{{orders.status}}</p>
+              </div>
+              <div class="col-6">
+                <p class="data_entry" >
+                  <strong> Date of delivery : </strong> <br>
+                   {{orders.dataEntry | date : "short"}} </p> 
+              </div>
+            </div>
+          </h5>
         </div>
         <div class="card-body">
+          <h5 class="card-title"> <strong> Name : </strong>{{orders.client}} 
+            <p class="data_entry">
+              <strong> Preparation time : </strong> {{orders.time | number:'1.0-0'}} min</h5>
+          <h5 class="card-title"> <strong> Total </strong> {{orders.total | currency : 'USD'}} </h5>
+        
           <div *ngFor="let listProds of orders.products">
-            <h5 class="card-title"> {{listProds.quantity}} - {{listProds.product.name}} </h5>
+            <h5 class="card-title list"> <strong> {{listProds.quantity}} </strong>- {{listProds.product.name}} </h5>
           </div>
         </div>
       </div>
     </ng-container>
   </div>
 </div>
+
+

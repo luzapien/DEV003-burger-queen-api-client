@@ -4,14 +4,23 @@
     <ng-container *ngIf="orders.status === 'Cooked'">
       <div class="card text-center">
         <div class="card-header">
-          <h5 class="card-title">{{orders.client}} - - - {{orders.dataEntry | date : "short"}} - - - Time:
-            {{orders.time | number:'1.0-0'}} min</h5>
-          <h5 class="card-title">Total: {{orders.total | currency : 'USD'}} </h5>
-          <h5 class="card-title">Status: {{orders.status}}</h5>
+          <h5 class="card-title list">
+            <div class="row">
+              <div class="col-6">
+                <strong>Status: </strong> {{orders.status}}
+              </div>
+              <div class="col-6">
+               <strong> Date:</strong>{{orders.dataEntry | date : "short"}} 
+              </div>
+            </div>
+          </h5>
         </div>
         <div class="card-body">
           <div *ngFor="let listProds of orders.products">
-            <h5 class="card-title"> {{listProds.quantity}} - {{listProds.product.name}} </h5>
+            <h4> <strong> Name :</strong>{{orders.client}}</h4>
+            <h4> <strong> Time : </strong> {{orders.time | number:'1.0-0'}} min</h4> 
+            <h3> <strong> Total</strong> {{orders.total | currency : 'USD'}} </h3>
+            <h4 class="card-title"> {{listProds.quantity}} - {{listProds.product.name}} </h4>
           </div>
         </div>
         <button type="button" id="orders.id" class="btn card-button mt-1 mb-1"
