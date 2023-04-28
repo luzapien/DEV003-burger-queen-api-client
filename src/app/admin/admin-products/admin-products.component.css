@@ -73,3 +73,15 @@
     justify-content: center;
     text-align: center;
 }
+
+img{
+    width: 7rem;
+    height: 6rem;
+}
+
+.card-title{
+    display: flex;
+    height: 3.5rem;
+    align-items: center;
+    justify-content: center;
+}
