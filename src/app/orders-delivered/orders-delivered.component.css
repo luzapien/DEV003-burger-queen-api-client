@@ -1,9 +1,7 @@
 .card {
   margin: 10px;
   justify-items: center;
-  align-items: center;
   width: 50%;
-  padding: 20px;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -24,11 +22,30 @@
   flex-wrap: wrap;
 }
 
-.card-title {
-  font-weight: bold;
-}
-
 .mainContainer {
   height: 80vh;
   overflow: auto;
+}
+
+p {
+  font-size: 1em;
+}
+
+.list{
+  overflow: auto;
+}
+
+.card-header{
+	background-color: rgb(175, 211, 175);
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
+	}
+
+.card-title{
+	font-weight: bolder;
+}
+
+.status{
+  font-weight: bolder;
+  color: green;
 }

@@ -5,9 +5,7 @@
 .card{
     margin:10px;
     justify-items: center;
-    align-items: center;
     width: 60%;
-    padding: 20px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -25,8 +23,7 @@
    }
 
 .card-button {
-    display: flex;
-    align-items: center;
+    width: 60%;
     border-radius: 1rem;
     border: none;
     background-color:  #730202;
@@ -35,7 +32,6 @@
     padding: .5rem 1rem;
     opacity: 1;
     transition: 0.3s ease-out;
-    justify-content: center;
    }
 
 .containerkitchen{
@@ -43,7 +39,12 @@
     height: 80vh;
     overflow: auto;
 } 
+.card-header{
+	background-color: rgb(175, 211, 175);
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
+	}
 
 .card-title{
-    font-weight: bold;
+	font-weight: bolder;
 }
