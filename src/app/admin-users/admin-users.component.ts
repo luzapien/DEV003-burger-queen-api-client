@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { OrdersServiceService } from 'src/app/servicios/orders.service.service';
-import type { User} from 'src/types';
+import type { User } from 'src/types';
 import { RequestService } from 'src/app/servicios/request.service';
 @Component({
   selector: 'app-admin-users',
@@ -9,21 +9,21 @@ import { RequestService } from 'src/app/servicios/request.service';
 })
 export class AdminUsersComponent {
   constructor(
-    public OrdersServiceService:OrdersServiceService,
-    public requestService:RequestService,
-  ){ this.getUsers()}
+    public OrdersServiceService: OrdersServiceService,
+    public requestService: RequestService,
+  ) { this.getUsers() }
 
   users: Array<User> = []
   listaUsers: User | null = null
-  modal:boolean=false
-  userID!:any;
+  modal: boolean = false
+  userID!: any;
   currentUser: User | null = null
-  
 
-  ngOnInit(): void {
-    this.obtainId();
-  }
-  
+
+  // ngOnInit(): void {
+  //   this.obtainId();
+  // }
+
   getUsers(): void {
     const token = localStorage.getItem('accessToken');
     this.OrdersServiceService.getUserService().subscribe({
@@ -36,20 +36,20 @@ export class AdminUsersComponent {
   }
   deleteUser(id: string) {
     const token = localStorage.getItem('accessToken');
-    this.requestService.deletePost(id, token)
+    this.requestService.deletePostUser(id, token)
       .subscribe(response => {
         console.log('producto eliminado:', response)
       });
   }
 
-  newUser(value:User){
+  newUser(value: User) {
     // const token = localStorage.getItem('accessToken')
     const newUser: User = {
       email: value.email,
       password: value.password,
       id: value.id,
       role: value.role,
-  
+
     };
     this.OrdersServiceService.postUsersService(newUser).subscribe({
       next: (response: User) => {
@@ -84,23 +84,20 @@ export class AdminUsersComponent {
     this.currentUser = user
   }
 
-  obtainId(){
-    this. OrdersServiceService.disparador.subscribe(data => {
-    this.userID = data.id
-    });
-  }
-  userAdd(value:User){
+  // obtainId(){
+  //   this. OrdersServiceService.disparador.subscribe(data => {
+  //   this.userID = data.id
+  //   });
+  // }
+  userAdd(value: User) {
 
     let USERS: User = {
-        email: value.email,
-        password: value.password,
-        id: value.id,
-        role: value.role,
+      email: value.email,
+      password: value.password,
+      id: value.id,
+      role: value.role,
     }
-    
-
     console.log(this.currentUser);
-
     if (this.currentUser) {
       if (!value.password) {
         USERS = {
@@ -108,7 +105,6 @@ export class AdminUsersComponent {
           role: value.role,
         }
       }
-      
       //Edit product
       this.OrdersServiceService.updateUsersService(this.currentUser.id, USERS).subscribe(
         data => {
@@ -120,7 +116,7 @@ export class AdminUsersComponent {
         error => {
           console.log(error);
         }
-    );
+      );
     } else {
       //Creat product if id is defined
       this.OrdersServiceService.postUsersService(USERS).subscribe(

@@ -56,10 +56,18 @@ export class RequestService {
       "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json; charset=UTF-8",
     })
+    return this.http.delete<Product>(' http://localhost:8080/products'+'/'+id, {headers});
+  }
+
+  deletePostUser(id:string, token: string |null){
+    const headers = new HttpHeaders({
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json; charset=UTF-8",
+    })
     return this.http.delete<Product>(' http://localhost:8080/users'+'/'+id, {headers});
   }
 
-  createProduct(token: string, body: any): any {
+  createProduct(token: string |null, body: any): any {
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: `Bearer ${token}`,

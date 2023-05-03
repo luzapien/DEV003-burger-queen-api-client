@@ -1,6 +1,6 @@
 <!-- Modal -->
-<button (click)="modal = true" type="button" class="btn btn-primary" data-bs-toggle="modal"
-data-bs-target="#modalAddProduct">Add new product</button>
+<button (click)="modal = true" type="button" class="card-button2" data-bs-toggle="modal"
+	data-bs-target="#modalAddProduct">Add new product</button>
 <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -12,23 +12,20 @@ data-bs-target="#modalAddProduct">Add new product</button>
 				<div class="modal-body">
 					<div class="mb-3">
 						<label for="productName" class="form-label">Product Name</label>
-						<input type="text" class="form-control" [ngModel]="currentProduct?.name"
-							aria-describedby="productName" id="productName" name="name">
+						<input type="text" class="form-control" [ngModel]="currentProduct?.name" aria-describedby="productName"
+							id="productName" name="name">
 					</div>
 					<div class="mb-3">
 						<label for="productPrice" class="form-label">Price</label>
-						<input type="number" class="form-control" id="productPrice" [ngModel]="currentProduct?.price"
-							name="price">
+						<input type="number" class="form-control" id="productPrice" [ngModel]="currentProduct?.price" name="price">
 					</div>
 					<div class="mb-3">
 						<label for="productType" class="form-label">Type</label>
-						<input type="text" class="form-control" id="productType" [ngModel]="currentProduct?.type"
-							name="type">
+						<input type="text" class="form-control" id="productType" [ngModel]="currentProduct?.type" name="type">
 					</div>
 					<div class="mb-3">
 						<label for="productImage" class="form-label">Image</label>
-						<input type="text" class="form-control" id="productImage" [ngModel]="currentProduct?.image"
-							name="image">
+						<input type="text" class="form-control" id="productImage" [ngModel]="currentProduct?.image" name="image">
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -58,5 +55,3 @@ data-bs-target="#modalAddProduct">Add new product</button>
 	</div>
 </div>
 <app-modal></app-modal>
-</div>
-

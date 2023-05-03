@@ -26,7 +26,7 @@ export class ModalComponent {
 
   getProducts(): void {
     console.log('get products called')
-    const token = this.cookieService.get('accessToken');
+    const token = localStorage.getItem('accessToken');
     this.requestService.getProductsRequest(token).subscribe({
       next: (response) => {
         // console.log('estos son los productos', response)
@@ -37,7 +37,7 @@ export class ModalComponent {
   }
 
   newProduct(value: Product) {
-    const token = this.cookieService.get('accessToken')
+    const token = localStorage.getItem('accessToken')
     const newProduct: NewProduct = {
       name: value.name,
       price: value.price,
