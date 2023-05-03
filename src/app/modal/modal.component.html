@@ -1,9 +1,56 @@
-
-<div class="modalContainer">
-    <form class="modalContent">
-      <label for=""> Data Entry
-        <input type="text">
-      </label>
-      <button>Close</button>
-    </form>
+<div class="modal fade" id="modalAddProduct" tabindex="-1" aria-labelledby="modalAddProduct" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Add new product</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form #loginForm="ngForm" (ngSubmit)="newProduct(loginForm.value)">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="productName" class="form-label">Product Name</label>
+            <input type="text" class="form-control" [ngModel]="currentProduct?.name" aria-describedby="productName"
+              id="productName" name="name">
+          </div>
+          <div class="mb-3">
+            <label for="productPrice" class="form-label">Price</label>
+            <input type="number" class="form-control" id="productPrice" [ngModel]="currentProduct?.price" name="price">
+          </div>
+          <div class="mb-3">
+            <label for="productImage" class="form-label">Image</label>
+            <input type="text" class="form-control" id="productImage" [ngModel]="currentProduct?.image" name="image">
+          </div>
+          <div class="mb-3">
+            <label for="productType" class="form-label">Type</label>
+            <input type="text" class="form-control" id="productType" [ngModel]="currentProduct?.type" name="type">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closeModalBtn" class="btn btn-secondary" data-bs-dismiss="modal"
+            (click)="onCloseModal()">Close</button>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+    </div>
   </div>
+</div>
+<!-- <div class="modalContainer">
+  <form class="modalContent" #loginForm="ngForm" (ngSubmit)="newProduct(loginForm.value)">
+    <label for=""> Name
+      <input type="text" [ngModel]="currentProduct?.name" name="name">
+    </label>
+    <label for=""> Price
+      <input type="text" [ngModel]="currentProduct?.price" name="price">
+    </label>
+    <label for=""> Image
+      <input type="text" [ngModel]="currentProduct?.image" name="image">
+    </label>
+    <label for=""> Type
+      <input type="text" [ngModel]="currentProduct?.type" name="type">
+    </label>
+    <label for=""> Id
+      <input type="text" [ngModel]="currentProduct?.id" name="id">
+    </label>
+    <button type="submit">New Product</button>
+  </form>
+</div> -->

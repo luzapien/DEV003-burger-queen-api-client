@@ -1,5 +1,7 @@
 <!-- <app-nav></app-nav> -->
 <!-- Modal -->
+<button (click)="modal = true" type="button" class="btn btn-primary" data-bs-toggle="modal"
+data-bs-target="#modalAddProduct">Add new product</button>
 <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -53,38 +55,4 @@
 		</div>
 	</div>
 </div>
-
-
-<!-- <div class="row gap-2 row-cols-3">
-	<div class="card col" style="width: 14rem;" *ngFor="let product of filteredProducts">
-		<img src={{product.image}} width="100" class="mx-auto p-2" alt={{product.name}}>
-		<div class="card-body">
-			<h5 class="card-title">{{product.name}}</h5>
-			<p class="card-text">{{formatPrice(product.price)}}</p>
-			<div class="d-flex gap-1">
-				<button (click)="showModal(product)" type="button" class="btn btn-primary">Edit</button>
-				<button (click)="[deleteProducts(product.id), getProducts()]" type="button"
-					class="btn btn-primary">Delete</button>
-			</div>
-		</div>
-	</div>
-	<ng-container *ngIf="modalSwitch && currentProduct">
-		<div class="modalContainer">
-			<form class="modalContent" #loginForm="ngForm" (ngSubmit)="updateData(loginForm.value)">
-				<label for="" class="label"> Product name :
-					<input type="text" [ngModel]="currentProduct.name" name="name">
-				</label>
-				<label for="" class="label"> Price :
-					<input type="text"  [ngModel]="currentProduct.price" name="price">
-				</label>
-				<label for="" class="label"> Type :
-					<input type="text" [ngModel]="currentProduct.type" name="type">
-				</label>
-				<div>
-					<button type="submit">Save</button>
-					<button (click)="closeModal()">X</button>
-				</div>
-			</form>
-		</div>
-	</ng-container>
-</div> -->
+<app-modal></app-modal>
