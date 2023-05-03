@@ -22,6 +22,14 @@ export interface ProductService {
   quantity: number
 }
 
+export interface NewProduct {
+  name: string,
+  price: number,
+  image: string,
+  type: string,
+  id: number
+}
+
 export interface OrdersProduct {
   qty: number;
   total: number;

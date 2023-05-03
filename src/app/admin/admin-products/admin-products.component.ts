@@ -5,6 +5,7 @@ import { AddProductService } from 'src/app/servicios/addproducts.service';
 import { CookieService } from 'ngx-cookie-service';
 import { OrdersServiceService } from 'src/app/servicios/orders.service.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { NewProductUserService } from 'src/app/new-product-user.service';
 
 @Component({
   selector: 'app-admin-products',
@@ -16,8 +17,8 @@ export class AdminProductsComponent {
     private requestService: RequestService,
     private cookieService: CookieService,
     public AddProductService: AddProductService,
-    public ordersServiceService: OrdersServiceService
-
+    public ordersServiceService: OrdersServiceService,
+    private NewProductUserService: NewProductUserService
   ) {
     this.getProducts()
   }
@@ -26,6 +27,16 @@ export class AdminProductsComponent {
   products: Array<Product> = []
   filteredProducts: Array<Product> = []
   currentProduct: Product | null = null
+  modal: boolean = false
+
+  ngOnInit():void{
+    this.NewProductUserService.disparador.subscribe(data => {
+      console.log('recibiendo data...',data)
+      this.getProducts()
+      this.currentProduct = null
+    })
+  }
+
 
   getProducts(): void {
     const token = this.cookieService.get('accessToken');
@@ -34,7 +45,6 @@ export class AdminProductsComponent {
         console.log('estos son los productos', response)
         this.products = response
         this.filteredProducts = response
-
       }
     })
   }
@@ -65,7 +75,7 @@ export class AdminProductsComponent {
         console.log('producto eliminado:', response)
       });
   }
-  
+
   onShowModal(product: Product) {
     this.currentProduct = product
   }
@@ -96,77 +106,30 @@ export class AdminProductsComponent {
         })
     }
   }
-  
-  // date: any = new Date()
-  // products: Array<Product> = []
-  // filteredProducts: Array<Product> = []
-  // modalSwitch: boolean = false
-  // currentProduct: Product | null = null
-
-  // getProducts(): void {
-  //   const token = this.cookieService.get('accessToken');
-  //   this.requestService.getProductsRequest(token).subscribe({
-  //     next: (response) => {
-  //       console.log('estos son los productos', response)
-  //       this.products = response
-  //       this.filteredProducts = response
-
-  //     }
-  //   })
-  // }
-  // formatPrice(price: number) {
-  //   return new Intl.NumberFormat('en-US', {
-  //     style: 'currency',
-  //     currency: 'USD',
-  //   }).format(price);
-  // }
-
-  // filterByFoodType(type: string) {
-  //   if (type === "all") {
-  //     this.filteredProducts = this.products
-  //     return
+  newProduct(value: Product) {
+    const token = this.cookieService.get('accessToken')
+    const newProduct: Product = {
+      name: value.name,
+      price: value.price,
+      image: value.image,
+      type: value.type,
+      dateEntry: this.date,
+      id: value.id,
+    };
+    this.requestService.createProduct(token, newProduct).subscribe({
+      next: (response: Product) => {
+        console.log(response)
+        this.getProducts()
+      }
+    })
+  }
+  //  editOraddProducts(){
+  //   let formProducts =  document.getElementById('formProducts')
+  //   const addBtn = document.getElementById('addProduct');
+  //   const editBtn = document.getElementById('editProduct');
+  //   if(addBtn?.click()){
+  //     this.newProduct()
   //   }
-  //   const productBreakfast = this.products.filter((product) => product.type === type)
-  //   this.filteredProducts = productBreakfast
-  // }
-  // addProducts(name: Product) {
-  //   this.AddProductService.add(name);
-  //   console.log('adding', this.products)
-  // }
-
-  // deleteProducts(id: number) {
-  //   const token = this.cookieService.get('accessToken');
-  //   this.requestService.deletePost(id, token)
-  //     .subscribe(response => {
-  //       console.log('producto eliminado:', response)
-  //     });
-  // }
-  // showModal(product: Product) {
-  //   this.modalSwitch = true
-  //   this.currentProduct = product
-  // }
-
-  // closeModal() {
-  //   this.modalSwitch = false
-  //   this.currentProduct = null
-  // }
-
-  // updateData(value: any) {
-  //   if (this.currentProduct) {
-  //     const PRODUCTS: Product = {
-  //       name: value.name,
-  //       price: value.price,
-  //       type: value.type,
-  //       dateEntry: this.date,
-  //       id: this.currentProduct.id,
-  //       image: value.image
-  //     }
-
-  //     this.ordersServiceService.updateProductService(this.currentProduct.id, PRODUCTS)
-  //       .subscribe(respuesta => {
-  //         console.log('Aqui', respuesta)
-  //       })
-  //   }
-  // }
+  //  }
 
 }
