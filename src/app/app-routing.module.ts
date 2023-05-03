@@ -9,6 +9,7 @@ import { BlockRoutesGuard } from './block-routes.guard';
 import { OrdersDeliveredComponent } from './orders-delivered/orders-delivered.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
 
 const routes: Routes = [{
   path: 'login',
@@ -17,29 +18,30 @@ const routes: Routes = [{
 {
   path: 'home', 
   component: HomeComponent,
-  canActivate: [BlockRoutesGuard]
+  // canActivate: [BlockRoutesGuard]
 },
 {
   path: 'kitchen',
   component: KitchenComponent,
-  canActivate: [BlockRoutesGuard]
+  // canActivate: [BlockRoutesGuard]
 },
 {
   path: 'orders',
   component: OrdersComponent,
-  canActivate: [BlockRoutesGuard]
+  // canActivate: [BlockRoutesGuard]
 },
 {
   path: 'orders delivered',
   component: OrdersDeliveredComponent,
-  canActivate: [BlockRoutesGuard]
+  // canActivate: [BlockRoutesGuard]
 },
 {
   path: 'admin',
   component: AdminComponent,
-  canActivate: [BlockRoutesGuard],
+  // canActivate: [BlockRoutesGuard],
   children: [
-    { path: 'admin-products', component: AdminProductsComponent}]
+    { path: 'admin-products', component: AdminProductsComponent},
+    { path: 'admin-users', component: AdminUsersComponent}]
 },
 {
   path: '',

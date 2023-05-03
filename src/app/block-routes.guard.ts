@@ -8,6 +8,7 @@ import * as Toastify from 'toastify-js';
   providedIn: 'root'
 })
 export class BlockRoutesGuard implements CanActivate {
+  state: boolean = false;
 
   constructor(
     private cookieService: CookieService,
@@ -16,6 +17,7 @@ export class BlockRoutesGuard implements CanActivate {
 
   redirect(flag:boolean):any{
     if(!flag){
+      this.cookieService.delete('roles_access');
       this.router.navigate(['/','login'])
         Toastify({
           text: ('Please log in with your credentials'),
@@ -34,9 +36,17 @@ export class BlockRoutesGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      const cookie = this.cookieService.check('accessToken')
-      this.redirect(cookie)
-    return cookie;
+      const cookie = this.cookieService.get('roles_access')
+    //   this.redirect(cookie)
+    //   // if (state.url==='/kitchen' && cookie ==='kitchen') {
+    //   //   return this.state = true;
+    //   // }
+    // return cookie;
+    if (state.url==='/admin' && cookie ==='admin') {
+      return this.state = true;
+    }
+    this.redirect(this.state);
+    return this.state = false;
+}
   }
   
-}
