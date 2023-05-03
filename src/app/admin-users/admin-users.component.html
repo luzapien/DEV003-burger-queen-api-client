@@ -1,54 +1,60 @@
 <button (click)="onShowModal(null)" type="button" class="card-button2" data-bs-toggle="modal"
-	data-bs-target="#editProductModal">Add new User</button>
+  data-bs-target="#editProductModal">Add new User</button>
 <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h1 class="modal-title fs-3"> Add new users</h1>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
-			</div>
-			<form #loginForm="ngForm" (ngSubmit)="[userAdd(loginForm.value),getUsers()]">
-				<div class="modal-body">
-					<div class="mb-3">
-						<label for="userEmail" class="form-label"> Email User</label>
-						<input type="text" class="form-control" [ngModel]="currentUser?.email" aria-describedby="userEmail"
-							id="userEmail" name="email">
-					</div>
-					<div class="mb-3">
-						<label for="userPassword" class="form-label"> Password</label>
-						<input type="string" class="form-control" id="userPassword" [ngModel]=""
-							name="password">
-					</div>
-					<div class="mb-3">
-						<label for="userRole" class="form-label">Role</label>
-						<input type="text" class="form-control" id="userRole" [ngModel]="currentUser?.role" name="role">
-					</div>
-				</div>
-				<div class="modal-footer">
-					<!-- <button type="button" id="closeModalBtn" class="btn close-button" data-bs-dismiss="modal"
-						(click)="onCloseModal()">Close</button> -->
-					<button type="submit" class="modal-button">Save changes</button>
-				</div>
-			</form>
-		</div>
-	</div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-3"> Add new users</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+      </div>
+      <form #loginForm="ngForm" (ngSubmit)="[userAdd(loginForm.value),getUsers()]">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="userEmail" class="form-label"> Email User</label>
+            <input type="text" class="form-control" [ngModel]="currentUser?.email" aria-describedby="userEmail"
+              id="userEmail" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="userPassword" class="form-label"> Password</label>
+            <input type="string" class="form-control" id="userPassword" [ngModel]="" name="password">
+          </div>
+          <div class="mb-3">
+            <label for="userRole" class="form-label">Role</label>
+            <input type="text" class="form-control" id="userRole" [ngModel]="currentUser?.role" name="role">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="modal-button">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
-	<div class="container mt-4">
-		<div class="card" *ngFor="let user of users">
-			<div class="card-body">
-				<h5><strong>Email:</strong></h5>
-				<h5 class="card-title">{{user.email}}</h5>
-				<h5 class="card-title"><strong>UserId :</strong> {{user.id}} </h5>
-				<h5 class="card-title"><strong>Role : </strong>{{user.role}}</h5>
-				<div class="d-flex gap-1">
-					<!-- <button (click)="onShowModal(product)" type="button" class="card-button" data-bs-toggle="modal"
-						data-bs-target="#editProductModal">Edit</button> -->
-					<button (click)="[deleteUser(user.id), getUsers()]" type="button" class="card-button">Delete</button>
-					<!-- <button (submit)="[userAdd(loginForm.value), getUsers()]" type="button" class="card-button">Edit</button> -->
-					<button (click)="onShowModal(user)" type="button" class="card-button" data-bs-toggle="modal" 
-					data-bs-target="#editProductModal">Edit</button>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="container mt-4">
+  <div class="card" *ngFor="let user of users">
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Email: </th>
+            <td scope="col">{{user.email}}</td>
+          </tr>
+          <tr>
+            <th scope="col">User Id: </th>
+            <td scope="col">{{user.id}} </td>
+          </tr>
+          <tr>
+            <th scope="col">Role: </th>
+            <td scope="col">{{user.role}}</td>
+          </tr>
+        </thead>
+      </table>
+      <div class="d-flex gap-1">
+        <button (click)="[deleteUser(user.id), getUsers()]" type="button" class="card-button">Delete</button>
+        <button (click)="onShowModal(user)" type="button" class="card-button" data-bs-toggle="modal"
+          data-bs-target="#editProductModal">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
