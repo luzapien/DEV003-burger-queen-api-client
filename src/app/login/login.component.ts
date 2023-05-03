@@ -42,11 +42,22 @@ export class LoginComponent {
       next: (response) => {
         const { accessToken } = response
         const { user } = response
+
         console.log('esto es el token',response)
+
+       
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem('userId', user.id);
+        localStorage.setItem('userRol', user.role);
         console.log(localStorage.getItem('userId'));
-        this.router.navigate(['home'])
+        console.log(localStorage.getItem('userRol'))
+        if (user.role === 'admin') {
+          this.router.navigate(['admin'])
+        } else if (user.role === 'server') {
+          this.router.navigate(['home'])
+        } else if (user.role === 'cook') {
+          this.router.navigate(['kitchen'])
+        }
       },
       error: (error) => {
         console.log(error)

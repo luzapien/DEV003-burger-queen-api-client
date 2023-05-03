@@ -58,4 +58,14 @@ export class RequestService {
     })
     return this.http.delete<Product>(' http://localhost:8080/users'+'/'+id, {headers});
   }
+
+  createProduct(token: string, body: any): any {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+        'content-type': 'application/json'
+      })
+    }
+    return this.http.post(`${baseUrl}/products`, body, httpOptions)
+  }
 }

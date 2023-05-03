@@ -3,6 +3,7 @@ import { AddProductService } from '../servicios/addproducts.service';
 import { RequestService } from '../servicios/request.service';
 import { Order, Product } from 'src/types';
 import { CookieService } from 'ngx-cookie-service';
+import * as Toastify from 'toastify-js';
 import { faTrashAlt, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { OrdersServiceService } from '../servicios/orders.service.service';
 
@@ -17,14 +18,14 @@ export class BillComponent {
     public addProductService: AddProductService,
     private requestService: RequestService,
     private cookieService: CookieService,
-    private ordersServiceService:OrdersServiceService,
+    private ordersServiceService: OrdersServiceService,
   ) { }
 
   faTrash = faTrashAlt;
   faPlus = faPlus;
   faMinus = faMinus;
   date: Date = new Date();
-  name:string = '';
+  name: string = '';
 
   removeProductsTicket(productId: number) {
     this.addProductService.removeProductsTicket(productId);
@@ -36,8 +37,8 @@ export class BillComponent {
     }, 0)
     return total
   }
-  
-  sendProducts(){
+
+  sendProducts() {
     this.date
     // const token = this.cookieService.get('accessToken');
     // const order = this.addProductService.products
@@ -46,42 +47,55 @@ export class BillComponent {
     console.log(this.addProductService.products, this.date)
   }
 
-  addnames(){
-    this.addProductService.addName(this.name); 
-    this.name = ''; // clean the input 
+  addnames() {
+    // this.addProductService.addName(this.name);
+    // this.name = ''; // clean the input 
   }
-  
-  increment(){
-    this.addProductService.products.map((element)=>element.quantity++)
+
+  increment() {
+    this.addProductService.products.map((element) => element.quantity++)
   }
-  decrement(){
-    let productsNumber:any=0;
-    this.addProductService.products.forEach((element)=> {
-      if(element.quantity -1 < 0){
+  decrement() {
+    let productsNumber: any = 0;
+    this.addProductService.products.forEach((element) => {
+      if (element.quantity - 1 < 0) {
         // element.qty--
         return productsNumber;
       }
     })
-    }
-    public deleteProduct():void {
-      this.addProductService.products = this.addProductService.products.filter((product) => product.quantity > 0 )
-    }
-
-    traerPedidos(){
-      // const ticket= order 
-      const ORDERS: Order = {
-        userId: localStorage.getItem('userId') || "[]",
-        client: this.name,
-        products: this.addProductService.products,
-        status: 'pending',
-        dataEntry: this.date,
-        total: this.totalPrice(),
-      };
-      this.ordersServiceService.postOrderService(ORDERS)
-      .subscribe(respuesta =>{
-        console.log('Aqui',respuesta)
-      })
-      this.addProductService.products = [];
-    }
-
   }
+  public deleteProduct(): void {
+    this.addProductService.products = this.addProductService.products.filter((product) => product.quantity > 0)
+  }
+
+  traerPedidos() {
+    // const ticket= order 
+    const ORDERS: Order = {
+      userId: localStorage.getItem('userId') || "[]",
+      client: this.name,
+      products: this.addProductService.products,
+      status: 'pending',
+      dataEntry: this.date,
+      total: this.totalPrice(),
+    };
+    this.ordersServiceService.postOrderService(ORDERS)
+      .subscribe({
+        next: (respuesta) => {
+          console.log('Aqui', respuesta)
+          Toastify({
+            text: ('Order sent to kitchen'),
+            duration: 10000,
+            close: true,
+            gravity: "top",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+              background: "#77dd77",
+            }
+          }).showToast();
+          this.addProductService.products = [];
+          this.name = '';
+        }
+      })
+  }
+}
