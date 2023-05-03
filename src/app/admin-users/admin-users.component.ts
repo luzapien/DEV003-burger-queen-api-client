@@ -91,16 +91,26 @@ export class AdminUsersComponent {
   }
   userAdd(value:User){
 
-    const USERS: User = {
+    let USERS: User = {
         email: value.email,
         password: value.password,
         id: value.id,
         role: value.role,
     }
+    
 
-    if (this.userID !== undefined) {
+    console.log(this.currentUser);
+
+    if (this.currentUser) {
+      if (!value.password) {
+        USERS = {
+          email: value.email,
+          role: value.role,
+        }
+      }
+      
       //Edit product
-      this.OrdersServiceService.updateUsersService(this.userID.id, USERS).subscribe(
+      this.OrdersServiceService.updateUsersService(this.currentUser.id, USERS).subscribe(
         data => {
           // this.userForm.reset();
           this.OrdersServiceService.update.emit({

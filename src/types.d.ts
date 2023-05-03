@@ -1,7 +1,7 @@
 export interface User {
   email: string,
-  password:string,
-  id: any,
+  password?:string,
+  id?: any,
   role: string
 }
 export interface LoginResponse {
