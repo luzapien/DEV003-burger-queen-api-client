@@ -4,14 +4,13 @@
 	text-align: center;
 	border-radius: 20px;
 	background: white;
-	width: 20rem;
+	width: 28rem;
 	padding: 1rem;
 	border: 2px solid #c3c6ce;
 	transition: 0.5s ease-out;
 	overflow: visible;
-	height: 20rem;
+	height: 15rem;
 	margin: 7px;
-
 }
 
 .card-button {
@@ -89,27 +88,11 @@
 	text-align: center;
 }
 
-img {
-	width: 7rem;
-	height: 6rem;
-}
-
-.card-title {
-	display: flex;
-	height: 3.5rem;
-	align-items: center;
-	justify-content: center;
-}
-
-
 .container{
-	width: 100wh;
-  height: 65vh;
+  width: 100wh;
+  height: 50vh;
   overflow: auto;
   display: flex;
   justify-content: center;
-  justify-items: center;
   flex-wrap: wrap;
-  align-items: center;
-	
 }
