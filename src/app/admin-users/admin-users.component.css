@@ -1,88 +1,115 @@
-.card{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    border-radius: 20px;
-    background: white;
-    position: relative;
-    padding: 1rem;
-    border: 2px solid #c3c6ce;
-    transition: 0.5s ease-out;
-    overflow: visible;
-    height: 20rem;
-   
+.card {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	border-radius: 20px;
+	background: white;
+	width: 20rem;
+	padding: 1rem;
+	border: 2px solid #c3c6ce;
+	transition: 0.5s ease-out;
+	overflow: visible;
+	height: 20rem;
+	margin: 7px;
+
 }
 
 .card-button {
-    width: 60%;
-    border-radius: 1rem;
-    border: none;
-    background-color:  #730202;
-    color: #fff;
-    font-size: 1rem;
-    padding: .5rem 1rem;
-    opacity: 1;
-    transition: 0.3s ease-out;
-    font-weight: bold;
-   }
+	width: 60%;
+	border-radius: 1rem;
+	border: none;
+	background-color: #730202;
+	color: white;
+	font-size: 1rem;
+	padding: .5rem 1rem;
+	opacity: 1;
+	transition: 0.3s ease-out;
+	font-weight: bold;
+}
+
+.card-button2 {
+	width: 20%;
+	border-radius: 1rem;
+	border: none;
+	background-color: #730202;
+	color: #fff;
+	font-size: 1rem;
+	padding: .5rem 1rem;
+	opacity: 1;
+	transition: 0.3s ease-out;
+	font-weight: bold;
+}
 
 .card:hover {
-    border-color: #730202;
-    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
-   }
-
-   .modal-button {
-    width: 30%;
-    border-radius: 1rem;
-    border: none;
-    background-color:  #730202;
-    color: #fff;
-    font-size: 1rem;
-    padding: .5rem 1rem;
-    opacity: 1;
-    transition: 0.3s ease-out;
-    font-weight: bold;
-   }
-
-   .close-button {
-    width: 30%;
-    border-radius: 1rem;
-    border: none;
-    background-color: gray;
-    color: #fff;
-    font-size: 1rem;
-    padding: .5rem 1rem;
-    opacity: 1;
-    transition: 0.3s ease-out;
-    font-weight: bold;
-   }
-
-.modal{
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-    font-weight: bold;
+	border-color: #730202;
+	box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
 }
 
-.modal-title{
-    display: flex;
-    font-weight: bolder;
-    justify-content: center;
-    text-align: center;
+.modal-button {
+	width: 30%;
+	border-radius: 1rem;
+	border: none;
+	background-color: #730202;
+	color: #fff;
+	font-size: 1rem;
+	padding: .5rem 1rem;
+	opacity: 1;
+	transition: 0.3s ease-out;
+	font-weight: bold;
 }
 
-img{
-    width: 7rem;
-    height: 6rem;
+.close-button {
+	width: 30%;
+	border-radius: 1rem;
+	border: none;
+	background-color: gray;
+	color: #fff;
+	font-size: 1rem;
+	padding: .5rem 1rem;
+	opacity: 1;
+	transition: 0.3s ease-out;
+	font-weight: bold;
 }
 
-.card-title{
-    display: flex;
-    height: 3.5rem;
-    align-items: center;
-    justify-content: center;
+.modal {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.4);
+	font-weight: bold;
+}
+
+.modal-title {
+	display: flex;
+	font-weight: bolder;
+	justify-content: center;
+	text-align: center;
+}
+
+img {
+	width: 7rem;
+	height: 6rem;
+}
+
+.card-title {
+	display: flex;
+	height: 3.5rem;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.container{
+	width: 100wh;
+  height: 65vh;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  align-items: center;
+	
 }

@@ -1,7 +1,5 @@
-<p>admin-users works!</p>
-
-<button (click)="onShowModal(null)" type="button" class="btn btn-primary" data-bs-toggle="modal"
-	data-bs-target="#editProductModal">Add new product</button>
+<button (click)="onShowModal(null)" type="button" class="card-button2" data-bs-toggle="modal"
+	data-bs-target="#editProductModal">Add new User</button>
 <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -9,7 +7,7 @@
 				<h1 class="modal-title fs-3"> Add new users</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
 			</div>
-			<form #loginForm="ngForm" (ngSubmit)="userAdd(loginForm.value)">
+			<form #loginForm="ngForm" (ngSubmit)="[userAdd(loginForm.value),getUsers()]">
 				<div class="modal-body">
 					<div class="mb-3">
 						<label for="userEmail" class="form-label"> Email User</label>
@@ -31,19 +29,18 @@
 						(click)="onCloseModal()">Close</button> -->
 					<button type="submit" class="modal-button">Save changes</button>
 				</div>
-
 			</form>
-
 		</div>
 	</div>
 </div>
-<div class="container mt-4">
-	<div class="row gap-2 row-cols-3">
-		<div class="card" style="width: 20rem;" *ngFor="let user of users">
+
+	<div class="container mt-4">
+		<div class="card" *ngFor="let user of users">
 			<div class="card-body">
+				<h5><strong>Email:</strong></h5>
 				<h5 class="card-title">{{user.email}}</h5>
-				<h5 class="card-title">{{user.id}}</h5>
-				<h5 class="card-title">{{user.role}}</h5>
+				<h5 class="card-title"><strong>UserId :</strong> {{user.id}} </h5>
+				<h5 class="card-title"><strong>Role : </strong>{{user.role}}</h5>
 				<div class="d-flex gap-1">
 					<!-- <button (click)="onShowModal(product)" type="button" class="card-button" data-bs-toggle="modal"
 						data-bs-target="#editProductModal">Edit</button> -->
@@ -55,4 +52,3 @@
 			</div>
 		</div>
 	</div>
-</div>
