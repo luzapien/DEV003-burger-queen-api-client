@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AddProductService } from '../servicios/addproducts.service';
-import { Injectable } from '@angular/core';
+import { Injectable,Output,EventEmitter} from '@angular/core';
 import { Observable } from 'rxjs';
-import { Order, Product} from 'src/types';
+import { Order, Product, User} from 'src/types';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,9 @@ export class OrdersServiceService {
 
   url:string = 'http://localhost:8080/orders';
   urlProducts:string = 'http://localhost:8080/products'
+  urlUsers:string = 'http://localhost:8080/users'
+  @Output() update: EventEmitter<any> = new EventEmitter();
+  @Output() disparador: EventEmitter<any> = new EventEmitter();
   // api_key = sessionStorage.setItem("token", "accesstoken");
   accessToken = localStorage.getItem('accessToken');
   // accessToken =  this.cookieService.get('accessToken');
@@ -42,4 +45,18 @@ export class OrdersServiceService {
     const urlPatch = `${this.urlProducts}/${id}`;   // PATCH api/heroes/42
     return this.http.patch<Product>(urlPatch, updateProduct, this.httpOptions);
   }
+
+  getUserService(): Observable<User[]> {
+    return this.http.get<User[]>(this.urlUsers, this.httpOptions);
+  }
+
+  postUsersService(user:User): Observable<User> {
+    return this.http.post<User>(this.urlUsers, user,this.httpOptions);
+  }
+
+  updateUsersService(id: any, updateUsers: User):Observable<User> {
+    const urlPatch = `${this.urlUsers}/${id}`;   // PATCH api/heroes/42
+    return this.http.patch<User>(urlPatch, updateUsers, this.httpOptions);
+  }
+
 }

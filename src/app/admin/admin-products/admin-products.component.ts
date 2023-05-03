@@ -28,7 +28,7 @@ export class AdminProductsComponent {
   currentProduct: Product | null = null
 
   getProducts(): void {
-    const token = this.cookieService.get('accessToken');
+    const token = localStorage.getItem('accessToken');
     this.requestService.getProductsRequest(token).subscribe({
       next: (response) => {
         console.log('estos son los productos', response)
@@ -58,8 +58,8 @@ export class AdminProductsComponent {
     console.log('adding', this.products)
   }
 
-  deleteProducts(id: number) {
-    const token = this.cookieService.get('accessToken');
+  deleteProducts(id: any) {
+    const token = localStorage.getItem('accessToken');
     this.requestService.deletePost(id, token)
       .subscribe(response => {
         console.log('producto eliminado:', response)

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -9,14 +8,13 @@ import * as Toastify from 'toastify-js';
   selector: 'app-login',// detalle de una persona 
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [CookieService]
 })
 
 export class LoginComponent {
   constructor(
     private requestService: RequestService,
     private router: Router,
-    private cookieService: CookieService
+
   ) { }
 
   get email() {
@@ -45,7 +43,6 @@ export class LoginComponent {
         const { accessToken } = response
         const { user } = response
         console.log('esto es el token',response)
-        this.cookieService.set('accessToken', accessToken,4,'/');
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem('userId', user.id);
         console.log(localStorage.getItem('userId'));

@@ -19,6 +19,7 @@ import { OrdersDeliveredComponent } from './orders-delivered/orders-delivered.co
 import { AdminComponent } from './admin/admin.component';
 import { ModalComponent } from './modal/modal.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
     OrdersDeliveredComponent,
     AdminComponent,
     ModalComponent,
-    AdminProductsComponent
+    AdminProductsComponent,
+    AdminUsersComponent
   ],
   imports: [
     BrowserModule,
