@@ -42,10 +42,7 @@ export class LoginComponent {
       next: (response) => {
         const { accessToken } = response
         const { user } = response
-
         console.log('esto es el token',response)
-
-       
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem('userId', user.id);
         localStorage.setItem('userRol', user.role);

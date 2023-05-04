@@ -18,27 +18,25 @@ const routes: Routes = [{
 {
   path: 'home', 
   component: HomeComponent,
-  // canActivate: [BlockRoutesGuard]
+  canActivate: [BlockRoutesGuard]
 },
 {
   path: 'kitchen',
   component: KitchenComponent,
-  // canActivate: [BlockRoutesGuard]
+  canActivate: [BlockRoutesGuard]
 },
 {
   path: 'orders',
   component: OrdersComponent,
-  // canActivate: [BlockRoutesGuard]
 },
 {
   path: 'orders delivered',
   component: OrdersDeliveredComponent,
-  // canActivate: [BlockRoutesGuard]
 },
 {
   path: 'admin',
   component: AdminComponent,
-  // canActivate: [BlockRoutesGuard],
+  canActivate: [BlockRoutesGuard],
   children: [
     { path: 'admin-products', component: AdminProductsComponent},
     { path: 'admin-users', component: AdminUsersComponent}]
