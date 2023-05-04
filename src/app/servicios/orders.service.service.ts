@@ -4,6 +4,8 @@ import { Injectable,Output,EventEmitter} from '@angular/core';
 import { Observable } from 'rxjs';
 import { Order, Product, User} from 'src/types';
 
+ const baseUrl = 'https://burger-queen-api-mock-nib4.vercel.app'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,9 +15,10 @@ export class OrdersServiceService {
     private http: HttpClient) {} // servicio que conecta con la API
 
 
-  url:string = 'https://burger-queen-api-mock-nib4.vercel.app/orders';
-  urlProducts:string = 'https://burger-queen-api-mock-nib4.vercel.app/products'
-  urlUsers:string = 'https://burger-queen-api-mock-nib4.vercel.app/users'
+
+  url:string = `${baseUrl}/orders`;
+  urlProducts:string = `${baseUrl}/products`
+  urlUsers:string = `${baseUrl}/users`
   @Output() update: EventEmitter<any> = new EventEmitter();
   @Output() disparador: EventEmitter<any> = new EventEmitter();
   // api_key = sessionStorage.setItem("token", "accesstoken");
