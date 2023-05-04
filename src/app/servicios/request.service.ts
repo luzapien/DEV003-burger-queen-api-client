@@ -56,7 +56,7 @@ export class RequestService {
       "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json; charset=UTF-8",
     })
-    return this.http.delete<Product>(' http://localhost:8080/products'+'/'+id, {headers});
+    return this.http.delete<Product>('https://burger-queen-api-mock-nine.vercel.app'+'/'+id, {headers});
   }
 
   deletePostUser(id:string, token: string |null){
@@ -64,7 +64,7 @@ export class RequestService {
       "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json; charset=UTF-8",
     })
-    return this.http.delete<Product>(' http://localhost:8080/users'+'/'+id, {headers});
+    return this.http.delete<Product>('https://burger-queen-api-mock-nine.vercel.app'+'/'+id, {headers});
   }
 
   createProduct(token: string |null, body: any): any {

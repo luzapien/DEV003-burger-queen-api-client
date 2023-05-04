@@ -62,7 +62,7 @@ export class LoginComponent {
       error: (error) => {
         console.log(error)
         if (error.status === 400) {
-          this.showError("Please,verify your Email and Password")
+          this.showError("Please, verify your Email and Password")
         }
 
         this.isFormLoading = false
