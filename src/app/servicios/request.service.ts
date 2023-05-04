@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import type { LoginResponse, Product, ProductService} from '../../types'
 
-const baseUrl = 'https://burger-queen-api-mock-nib4.vercel.app/'
+const baseUrl = 'https://burger-queen-api-mock-nib4.vercel.app'
 @Injectable({
   providedIn: 'root'
 })
