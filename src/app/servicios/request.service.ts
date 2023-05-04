@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import type { LoginResponse, Product, ProductService} from '../../types'
 
-const baseUrl = 'https://burger-queen-api-mock-nine.vercel.app'
+const baseUrl = 'https://burger-queen-api-mock-nib4.vercel.app/'
 @Injectable({
   providedIn: 'root'
 })
@@ -41,7 +41,7 @@ export class RequestService {
       "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json; charset=UTF-8",
     })
-    return this.http.delete<Product>('https://burger-queen-api-mock-nine.vercel.app/products'+'/'+id, {headers});
+    return this.http.delete<Product>('https://burger-queen-api-mock-nib4.vercel.app/products'+'/'+id, {headers});
   }
 
   deletePostUser(id:string, token: string |null){
@@ -49,7 +49,7 @@ export class RequestService {
       "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json; charset=UTF-8",
     })
-    return this.http.delete<Product>('https://burger-queen-api-mock-nine.vercel.app/users'+'/'+id, {headers});
+    return this.http.delete<Product>('https://burger-queen-api-mock-nib4.vercel.app/users'+'/'+id, {headers});
   }
 
   createProduct(token: string |null, body: any): any {
