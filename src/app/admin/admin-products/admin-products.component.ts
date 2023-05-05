@@ -123,13 +123,5 @@ export class AdminProductsComponent {
       }
     })
   }
-  //  editOraddProducts(){
-  //   let formProducts =  document.getElementById('formProducts')
-  //   const addBtn = document.getElementById('addProduct');
-  //   const editBtn = document.getElementById('editProduct');
-  //   if(addBtn?.click()){
-  //     this.newProduct()
-  //   }
-  //  }
 
 }

@@ -19,11 +19,6 @@ export class AdminUsersComponent {
   userID!: any;
   currentUser: User | null = null
 
-
-  // ngOnInit(): void {
-  //   this.obtainId();
-  // }
-
   getUsers(): void {
     const token = localStorage.getItem('accessToken');
     this.OrdersServiceService.getUserService().subscribe({
@@ -43,7 +38,6 @@ export class AdminUsersComponent {
   }
 
   newUser(value: User) {
-    // const token = localStorage.getItem('accessToken')
     const newUser: User = {
       email: value.email,
       password: value.password,
@@ -58,37 +52,11 @@ export class AdminUsersComponent {
       }
     })
   }
-  // updateDataUsers(value: any) {
-  //   if (this.currentProduct) {
-  //     const PRODUCTS: Product = {
-  //       name: value.name,
-  //       price: value.price,
-  //       type: value.type,
-  //       dateEntry: this.date,
-  //       id: this.currentProduct.id,
-  //       image: value.image
-  //     }
-  //     const closeModalBtn = document.getElementById('closeModalBtn')
-  //     this.ordersServiceService.updateProductService(this.currentProduct.id, PRODUCTS)
-  //       .subscribe({
-  //         next: (response) => {
-  //           closeModalBtn?.click()
-  //           this.onCloseModal()
-  //           this.getProducts()
-  //           console.log(response)
-  //         }
-  //       })
-  //   }
 
   onShowModal(user: User | null) {
     this.currentUser = user
   }
 
-  // obtainId(){
-  //   this. OrdersServiceService.disparador.subscribe(data => {
-  //   this.userID = data.id
-  //   });
-  // }
   userAdd(value: User) {
 
     let USERS: User = {
@@ -108,7 +76,6 @@ export class AdminUsersComponent {
       //Edit product
       this.OrdersServiceService.updateUsersService(this.currentUser.id, USERS).subscribe(
         data => {
-          // this.userForm.reset();
           this.OrdersServiceService.update.emit({
             update: true,
           });
