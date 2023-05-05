@@ -13,9 +13,9 @@ export class OrdersServiceService {
     private http: HttpClient) {} // servicio que conecta con la API
 
 
-  url:string = 'https://burger-queen-api-mock-nine.vercel.app/orders';
-  urlProducts:string = 'https://burger-queen-api-mock-nine.vercel.app/products'
-  urlUsers:string = 'https://burger-queen-api-mock-nine.vercel.app/users'
+  url:string = 'http://localhost:8080/orders';
+  urlProducts:string = 'http://localhost:8080/products'
+  urlUsers:string = 'http://localhost:8080/users'
   @Output() update: EventEmitter<any> = new EventEmitter();
   @Output() disparador: EventEmitter<any> = new EventEmitter();
   // api_key = sessionStorage.setItem("token", "accesstoken");
