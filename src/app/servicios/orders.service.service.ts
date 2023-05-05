@@ -15,10 +15,10 @@ export class OrdersServiceService {
     private http: HttpClient) {} // servicio que conecta con la API
 
 
+  url:string = 'https://burger-queen-api-mock-04j3.onrender.com/orders';
+  urlProducts:string = 'https://burger-queen-api-mock-04j3.onrender.com/products'
+  urlUsers:string = 'https://burger-queen-api-mock-04j3.onrender.com/users'
 
-  url:string = `${baseUrl}/orders`;
-  urlProducts:string = `${baseUrl}/products`
-  urlUsers:string = `${baseUrl}/users`
   @Output() update: EventEmitter<any> = new EventEmitter();
   @Output() disparador: EventEmitter<any> = new EventEmitter();
   // api_key = sessionStorage.setItem("token", "accesstoken");
