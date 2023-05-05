@@ -45,7 +45,7 @@ export class BlockRoutesGuard implements CanActivate {
       return this.state = true;
     } else if (state.url === '/kitchen' && authGuard === 'cook') {
       return this.state = true;
-    }
+    } 
     this.redirect(this.state);
     return this.state = false;
   }
