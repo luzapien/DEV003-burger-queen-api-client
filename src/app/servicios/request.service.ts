@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import type { LoginResponse, Product, ProductService} from '../../types'
+import type { LoginResponse, Product, User} from '../../types'
 
-const baseUrl = 'https://burger-queen-api-mock-nine.vercel.app'
+const baseUrl = 'https://burger-queen-api-mock-04j3.onrender.com'
 @Injectable({
   providedIn: 'root'
 })
@@ -56,7 +56,7 @@ export class RequestService {
       "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json; charset=UTF-8",
     })
-    return this.http.delete<Product>('https://burger-queen-api-mock-nine.vercel.app'+'/'+id, {headers});
+    return this.http.delete<Product>(`${baseUrl}/products`+'/'+id, {headers});
   }
 
   deletePostUser(id:string, token: string |null){
@@ -64,7 +64,7 @@ export class RequestService {
       "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json; charset=UTF-8",
     })
-    return this.http.delete<Product>('https://burger-queen-api-mock-nine.vercel.app'+'/'+id, {headers});
+    return this.http.delete<User>(`${baseUrl}/users`+'/'+id, {headers});
   }
 
   createProduct(token: string |null, body: any): any {
