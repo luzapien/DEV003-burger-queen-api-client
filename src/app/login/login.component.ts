@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { RequestService } from '../servicios/request.service';
 import * as Toastify from 'toastify-js';
+import { User } from 'src/types';
 @Component({
   selector: 'app-login',// detalle de una persona 
   templateUrl: './login.component.html',
@@ -16,7 +17,8 @@ export class LoginComponent {
     private router: Router,
 
   ) { }
-
+  accessToken: string = '';
+  user: User = {} as User;
   get email() {
     return this.formUser.get('email') as FormControl;
   }
@@ -35,24 +37,24 @@ export class LoginComponent {
   isFormLoading: boolean = false
   message: string = ""
 
-  createPostos(): void {
+  createPostos() {
     this.isFormLoading = true
     const { value } = this.formUser
     this.requestService.loginRequest(value).subscribe({
       next: (response) => {
-        const { accessToken } = response
-        const { user } = response
-        console.log('esto es el token',response)
-        localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem('userId', user.id);
-        localStorage.setItem('userRol', user.role);
+        this.accessToken = response.accessToken
+        this.user = response.user
+        console.log('esto es el token', response)
+        localStorage.setItem('accessToken', this.accessToken);
+        localStorage.setItem('userId', this.user.id);
+        localStorage.setItem('userRol', this.user.role);
         console.log(localStorage.getItem('userId'));
         console.log(localStorage.getItem('userRol'))
-        if (user.role === 'admin') {
+        if (this.user.role === 'admin') {
           this.router.navigate(['admin'])
-        } else if (user.role === 'server') {
+        } else if (this.user.role === 'server') {
           this.router.navigate(['home'])
-        } else if (user.role === 'cook') {
+        } else if (this.user.role === 'cook') {
           this.router.navigate(['kitchen'])
         }
       },
@@ -61,7 +63,6 @@ export class LoginComponent {
         if (error.status === 400) {
           this.showError("Please, verify your Email and Password")
         }
-
         this.isFormLoading = false
       }
     });

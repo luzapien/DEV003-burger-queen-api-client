@@ -58,37 +58,10 @@ export class AdminUsersComponent {
       }
     })
   }
-  // updateDataUsers(value: any) {
-  //   if (this.currentProduct) {
-  //     const PRODUCTS: Product = {
-  //       name: value.name,
-  //       price: value.price,
-  //       type: value.type,
-  //       dateEntry: this.date,
-  //       id: this.currentProduct.id,
-  //       image: value.image
-  //     }
-  //     const closeModalBtn = document.getElementById('closeModalBtn')
-  //     this.ordersServiceService.updateProductService(this.currentProduct.id, PRODUCTS)
-  //       .subscribe({
-  //         next: (response) => {
-  //           closeModalBtn?.click()
-  //           this.onCloseModal()
-  //           this.getProducts()
-  //           console.log(response)
-  //         }
-  //       })
-  //   }
-
   onShowModal(user: User | null) {
     this.currentUser = user
   }
 
-  // obtainId(){
-  //   this. OrdersServiceService.disparador.subscribe(data => {
-  //   this.userID = data.id
-  //   });
-  // }
   userAdd(value: User) {
 
     let USERS: User = {
@@ -112,6 +85,7 @@ export class AdminUsersComponent {
           this.OrdersServiceService.update.emit({
             update: true,
           });
+          this.modal = false
         },
         error => {
           console.log(error);
@@ -124,11 +98,16 @@ export class AdminUsersComponent {
           this.OrdersServiceService.update.emit({
             update: true,
           });
+         
         },
         error => {
           console.log(error);
         }
+        
       );
     }
+    this.getUsers()
+  
   }
+  
 }
