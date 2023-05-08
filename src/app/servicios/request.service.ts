@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import type { LoginResponse, Product, ProductService} from '../../types'
+import type { LoginResponse, Product, User} from '../../types'
 
 const baseUrl = 'http://localhost:8080'
 const urlBase = 'https://burger-queen-api-mock-99ph.onrender.com'

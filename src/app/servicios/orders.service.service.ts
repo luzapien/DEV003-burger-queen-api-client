@@ -4,6 +4,8 @@ import { Injectable,Output,EventEmitter} from '@angular/core';
 import { Observable } from 'rxjs';
 import { Order, Product, User} from 'src/types';
 
+ const baseUrl = 'https://burger-queen-api-mock-nib4.vercel.app'
+
 @Injectable({
   providedIn: 'root'
 })

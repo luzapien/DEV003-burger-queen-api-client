@@ -70,7 +70,7 @@ export class AdminUsersComponent {
       id: value.id,
       role: value.role,
     }
-    console.log(this.currentUser);
+    // console.log(this.currentUser);
     if (this.currentUser) {
       if (!value.password) {
         USERS = {
