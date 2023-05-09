@@ -1,13 +1,10 @@
-  # Burger Queen (API Client)
-
-
 # Burger Queen (API Client)
 
 
 ## Index
 
 * [1. Introduction](#1-introduction) 
-* [2. User Stories](#2-user-stories) 
+* [2. User Stories In Interface](#2-user-stories-in-interface) 
 * [3. Low Fidelity Prototypes](#3-low-fidelity-prototypes) 
 * [4. High Fidelity Prototypes](#4-high-fidelity-prototypes) 
 * [5. Usability Tests](#5-usability-tests)
@@ -25,7 +22,7 @@ Email:  grace.hopper@systers.xyz
 Password:  123456
 
 
-## 2. User Stories
+## 2. User Stories In Interface
 
 
 User story # 1
@@ -33,26 +30,42 @@ User story # 1
 The waiter/Waitress must be able to enter the system if the admin has already assigned credentials
 As a waiter/waitress, I want to be able to enter the ordering system.
 
+![interface](./src/assets/primero.gif)
+
+
 User story #2
 The waitress/Waiter must be able to take customer orders.
 As a waiter/waitress, I want to take the order from a client so as not to depend on my bad memory, to know how much to charge, and send it to the kitchen to avoid mistakes and so that it can be prepared in order.
+
+![interface](./src/assets/segundo.gif)
 
 User story #3 
 
 The chef should be able to see the orders.
 As a chef, I want to see the clients' orders in order and mark which ones are ready to know what needs to be cooked and notify the waiters that an order is ready to be served to a client.
 
+![interface](./src/assets/tercero.gif)
+
+
 User story #4
 The waitress/waiter should see orders ready to serve
 As a waiter/waitress, I want to see the orders that are ready to be delivered quickly to the customers who made them.
+
+![interface](./src/assets/cuarto.gif)
+
 
 User story #5
 The restaurant manager must manage the workers.
 As a restaurant administrator, I want to manage the users of the platform to keep the information of my workers updated.
 
+![interface](./src/assets/cinco.gif)
+
+
 User story #6
 A restaurant manager should manage the products
 As a restaurant administrator, I want to manage the products to keep the menu updated.
+
+![interface](./src/assets/seis.gif)
 
 
 ## 3. Low Fidelity Prototypes
@@ -111,7 +124,3 @@ For a better understanding of the HTTP request-response flow from our angular ap
 
 
 
-## 7. Interface
-	
-![Getting Started](./src/Media/mobile1.png)
-![Getting Started](./src/Media/web1.png)
