@@ -5,6 +5,8 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { RequestService } from '../servicios/request.service';
 import * as Toastify from 'toastify-js';
 import { User } from 'src/types';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-login',// detalle de una persona 
   templateUrl: './login.component.html',
@@ -39,33 +41,64 @@ export class LoginComponent {
 
   loginFunction() {
     this.isFormLoading = true
-    const { value } = this.formUser
-    this.requestService.loginRequest(value).subscribe({
-      next: (response) => {
-        this.accessToken = response.accessToken
-        this._user = response.user
-        console.log('esto es el token', response)
-        localStorage.setItem('accessToken', this.accessToken);
-        localStorage.setItem('userId', this._user.id);
-        localStorage.setItem('userRol', this._user.role);
-        console.log(localStorage.getItem('userId'));
-        console.log(localStorage.getItem('userRol'))
-        if (this._user.role === 'admin') {
-          this.router.navigate(['admin'])
-        } else if (this._user.role === 'server') {
-          this.router.navigate(['home'])
-        } else if (this._user.role === 'cook') {
-          this.router.navigate(['kitchen'])
+    const { value } = this.formUser;
+
+    const loginObservable: Observable<any> = this.requestService.loginRequest(value);
+    if(loginObservable){
+      loginObservable.subscribe({
+        next: (response) => {
+          this.accessToken = response.accessToken
+          this._user = response.user
+          console.log('esto es el token', response)
+          localStorage.setItem('accessToken', this.accessToken);
+          localStorage.setItem('userId', this._user.id);
+          localStorage.setItem('userRol', this._user.role);
+          console.log(localStorage.getItem('userId'));
+          console.log(localStorage.getItem('userRol'))
+          if (this._user.role === 'admin') {
+            this.router.navigate(['admin'])
+          } else if (this._user.role === 'server') {
+            this.router.navigate(['home'])
+          } else if (this._user.role === 'cook') {
+            this.router.navigate(['kitchen'])
+          }
+        },
+        error: (error) => {
+          console.log(error)
+          if (error.status === 400) {
+            this.showError("Please, verify your Email and Password")
+          }
+          this.isFormLoading = false
         }
-      },
-      error: (error) => {
-        console.log(error)
-        if (error.status === 400) {
-          this.showError("Please, verify your Email and Password")
-        }
-        this.isFormLoading = false
-      }
-    });
+      });
+    }
+
+    // this.requestService.loginRequest(value).subscribe({
+    //   next: (response) => {
+    //     this.accessToken = response.accessToken
+    //     this._user = response.user
+    //     console.log('esto es el token', response)
+    //     localStorage.setItem('accessToken', this.accessToken);
+    //     localStorage.setItem('userId', this._user.id);
+    //     localStorage.setItem('userRol', this._user.role);
+    //     console.log(localStorage.getItem('userId'));
+    //     console.log(localStorage.getItem('userRol'))
+    //     if (this._user.role === 'admin') {
+    //       this.router.navigate(['admin'])
+    //     } else if (this._user.role === 'server') {
+    //       this.router.navigate(['home'])
+    //     } else if (this._user.role === 'cook') {
+    //       this.router.navigate(['kitchen'])
+    //     }
+    //   },
+    //   error: (error) => {
+    //     console.log(error)
+    //     if (error.status === 400) {
+    //       this.showError("Please, verify your Email and Password")
+    //     }
+    //     this.isFormLoading = false
+    //   }
+    // });
   }
   showError(message: string): void {
     Toastify({
