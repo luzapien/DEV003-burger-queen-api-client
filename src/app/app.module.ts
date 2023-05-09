@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ModalComponent } from './modal/modal.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { AdminUsersComponent } from './admin-users/admin-users.component';
     AdminComponent,
     ModalComponent,
     AdminProductsComponent,
-    AdminUsersComponent
+    AdminUsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +48,9 @@ import { AdminUsersComponent } from './admin-users/admin-users.component';
     ReactiveFormsModule,
     FontAwesomeModule,
     HttpClientModule,
+    CommonModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [CookieService],
   bootstrap: [AppComponent]
 })
