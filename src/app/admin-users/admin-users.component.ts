@@ -19,11 +19,6 @@ export class AdminUsersComponent {
   userID!: any;
   currentUser: User | null = null
 
-
-  // ngOnInit(): void {
-  //   this.obtainId();
-  // }
-
   getUsers(): void {
     const token = localStorage.getItem('accessToken');
     this.OrdersServiceService.getUserService().subscribe({
@@ -43,7 +38,6 @@ export class AdminUsersComponent {
   }
 
   newUser(value: User) {
-    // const token = localStorage.getItem('accessToken')
     const newUser: User = {
       email: value.email,
       password: value.password,
@@ -81,7 +75,6 @@ export class AdminUsersComponent {
       //Edit product
       this.OrdersServiceService.updateUsersService(this.currentUser.id, USERS).subscribe(
         data => {
-          // this.userForm.reset();
           this.OrdersServiceService.update.emit({
             update: true,
           });
