@@ -52,7 +52,6 @@ export class AdminUsersComponent {
       }
     })
   }
-
   onShowModal(user: User | null) {
     this.currentUser = user
   }
@@ -79,7 +78,7 @@ export class AdminUsersComponent {
           this.OrdersServiceService.update.emit({
             update: true,
           });
-          this.getUsers()
+          this.modal = false
         },
         error => {
           console.log(error);
@@ -92,12 +91,16 @@ export class AdminUsersComponent {
           this.OrdersServiceService.update.emit({
             update: true,
           });
-          this.getUsers()
+         
         },
         error => {
           console.log(error);
         }
+        
       );
     }
+    this.getUsers()
+  
   }
+  
 }

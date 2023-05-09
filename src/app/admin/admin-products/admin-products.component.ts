@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { RequestService } from 'src/app/servicios/request.service';
 import type { Product } from 'src/types';
 import { AddProductService } from 'src/app/servicios/addproducts.service';
-import { CookieService } from 'ngx-cookie-service';
 import { OrdersServiceService } from 'src/app/servicios/orders.service.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NewProductUserService } from 'src/app/new-product-user.service';
@@ -15,7 +14,6 @@ import { NewProductUserService } from 'src/app/new-product-user.service';
 export class AdminProductsComponent {
   constructor(
     private requestService: RequestService,
-    private cookieService: CookieService,
     public AddProductService: AddProductService,
     public ordersServiceService: OrdersServiceService,
     private NewProductUserService: NewProductUserService
@@ -107,7 +105,7 @@ export class AdminProductsComponent {
     }
   }
   newProduct(value: Product) {
-    const token = this.cookieService.get('accessToken')
+    const token = localStorage.getItem('accessToken')
     const newProduct: Product = {
       name: value.name,
       price: value.price,

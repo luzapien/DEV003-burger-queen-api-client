@@ -4,9 +4,8 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import type { LoginResponse, Product, User} from '../../types'
 
-
-const baseUrl = 'https://burger-queen-api-mock-04j3.onrender.com'
-
+const baseUrl = 'http://localhost:8080'
+const urlBase = 'https://burger-queen-api-mock-99ph.onrender.com'
 @Injectable({
   providedIn: 'root'
 })
@@ -16,8 +15,8 @@ export class RequestService {
     private http: HttpClient
   ) { }
 
-  loginRequest(value: object) {
-    return this.http.post<LoginResponse>(`${baseUrl}/login`, value)
+  loginRequest(value: object):Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(`${urlBase}/login`, value)
   }
 
   getProductsRequest(token: any) {
@@ -25,7 +24,7 @@ export class RequestService {
       "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json; charset=UTF-8",
     })
-    return this.http.get<Array<Product>>(`${baseUrl}/products`, { headers });
+    return this.http.get<Array<Product>>(`${urlBase}/products`, { headers });
   }
 
   createOrder(token: string, body: any): any {
@@ -35,7 +34,7 @@ export class RequestService {
         'content-type': 'application/json'
       })
     }
-    return this.http.post(`${baseUrl}/orders`, body, httpOptions)
+    return this.http.post(`${urlBase}/orders`, body, httpOptions)
   }
 
   deletePost(id:string, token: string |null){
@@ -43,7 +42,7 @@ export class RequestService {
       "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json; charset=UTF-8",
     })
-    return this.http.delete<Product>(`${baseUrl}/products`+'/'+id, {headers});
+    return this.http.delete<Product>('https://burger-queen-api-mock-99ph.onrender.com/products'+'/'+id, {headers});
   }
 
   deletePostUser(id:string, token: string |null){
@@ -51,9 +50,7 @@ export class RequestService {
       "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json; charset=UTF-8",
     })
-
-    return this.http.delete<User>(`${baseUrl}/users`+'/'+id, {headers});
-
+    return this.http.delete<Product>('https://burger-queen-api-mock-99ph.onrender.com/users'+'/'+id, {headers});
   }
 
   createProduct(token: string |null, body: any): any {
@@ -63,6 +60,6 @@ export class RequestService {
         'content-type': 'application/json'
       })
     }
-    return this.http.post(`${baseUrl}/products`, body, httpOptions)
+    return this.http.post(`${urlBase}/products`, body, httpOptions)
   }
 }
