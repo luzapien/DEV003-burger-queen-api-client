@@ -9,7 +9,6 @@
 * [4. High Fidelity Prototypes](#4-high-fidelity-prototypes) 
 * [5. Usability Tests](#5-usability-tests)
 * [6. Diagram](#6-diagram)
-* [7. Interface](#7-interface)
 
 
 ***
